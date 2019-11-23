@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::get('{reactRoutes}', function () {
+//    return view('welcome'); // your start view
+//})->where('reactRoutes', '^((?!api).)*$');
