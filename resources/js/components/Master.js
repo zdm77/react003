@@ -1,21 +1,18 @@
 import React, {Component} from 'react';
-
-
+import {Link} from "react-router-dom";
 
 
 class Master extends Component {
-    render(){
+    render() {
         return (
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul className="nav navbar-nav">
-                    <li className="active"><a href="#">Пункт 1</a></li>
-                    <li><a href="#">Пункт 2</a></li>
-                    <li><a href="#">Пункт 3</a></li>
-                    <li><a href="#">Пункт 4</a></li>
-                    <li><a href="#">Пункт 5</a></li>
-                </ul>
+            <div className="navbar navbar-expand-lg navbar-light bg-light" >
+              <ul class="nav navbar-nav">
+                  <li class="navbar-brand"><Link to={'/'}>Home</Link> </li>
+                  <li class="navbar-brand"> <Link to={'/display-product'}>Каталог</Link> </li>
+              </ul>
             </div>
         )
     }
 }
+
 export default Master;

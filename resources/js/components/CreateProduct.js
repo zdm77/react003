@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route,Switch} from 'react-router-dom';
+
+
+
 class CreateProduct extends Component {
     constructor(props){
         super(props);
@@ -25,9 +27,10 @@ class CreateProduct extends Component {
             name: this.state.productName,
             price: this.state.productPrice
         }
-        let uri = 'http://localhost:8000/items';
+        let uri = 'products';
         axios.post(uri, products).then((response) => {
-            // browserHistory.push('/display-item');
+
+            this.props.history.push('/display-product');
         });
     }
 

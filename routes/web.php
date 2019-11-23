@@ -17,3 +17,4 @@ Route::get('/', function () {
 //Route::get('{reactRoutes}', function () {
 //    return view('welcome'); // your start view
 //})->where('reactRoutes', '^((?!api).)*$');
+Route::resource('products', 'ProductController');

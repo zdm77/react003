@@ -6387,6 +6387,1167 @@ module.exports = function() {
 
 /***/ }),
 
+/***/ "./node_modules/hookrouter/dist/Link.js":
+/*!**********************************************!*\
+  !*** ./node_modules/hookrouter/dist/Link.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.A = exports.setLinkProps = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _router = __webpack_require__(/*! ./router */ "./node_modules/hookrouter/dist/router.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/**
+ * Accepts HTML `a`-tag properties, requiring `href` and optionally
+ * `onClick`, which are appropriately wrapped to allow other
+ * frameworks to be used for creating `hookrouter` navigatable links.
+ *
+ * If `onClick` is supplied, then the navigation will happen before
+ * the supplied `onClick` action!
+ *
+ * @example
+ *
+ * &lt;MyFrameworkLink what="ever" {...useLink({ href: '/' })}&gt;
+ *   Link text
+ * &lt;/MyFrameworkLink&gt;
+ *
+ * @param {Object} props Requires `href`. `onClick` is optional.
+ */
+var setLinkProps = function setLinkProps(props) {
+  var onClick = function onClick(e) {
+    if (!e.shiftKey && !e.ctrlKey && !e.altKey) {
+      e.preventDefault(); // prevent the link from actually navigating
+
+      (0, _router.navigate)(e.currentTarget.href);
+    }
+
+    if (props.onClick) {
+      props.onClick(e);
+    }
+  };
+
+  var href = props.href.substr(0, 1) === '/' ? (0, _router.getBasepath)() + props.href : props.href;
+  return _objectSpread({}, props, {
+    href: href,
+    onClick: onClick
+  });
+};
+/**
+ * Accepts standard HTML `a`-tag properties. `href` and, optionally,
+ * `onClick` are used to create links that work with `hookrouter`.
+ *
+ * @example
+ *
+ * &lt;A href="/" target="_blank"&gt;
+ *   Home
+ * &lt;/A&gt;
+ *
+ * @param {Object} props Requires `href`. `onClick` is optional
+ */
+
+
+exports.setLinkProps = setLinkProps;
+
+var A = function A(props) {
+  return _react.default.createElement("a", setLinkProps(props));
+};
+
+exports.A = A;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9MaW5rLmpzIl0sIm5hbWVzIjpbInNldExpbmtQcm9wcyIsInByb3BzIiwib25DbGljayIsImUiLCJzaGlmdEtleSIsImN0cmxLZXkiLCJhbHRLZXkiLCJwcmV2ZW50RGVmYXVsdCIsImN1cnJlbnRUYXJnZXQiLCJocmVmIiwic3Vic3RyIiwiQSJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztBQUNBOzs7Ozs7OztBQUVBOzs7Ozs7Ozs7Ozs7Ozs7O0FBZ0JPLElBQU1BLFlBQVksR0FBRyxTQUFmQSxZQUFlLENBQUNDLEtBQUQsRUFBVztBQUN0QyxNQUFNQyxPQUFPLEdBQUcsU0FBVkEsT0FBVSxDQUFDQyxDQUFELEVBQU87QUFDdEIsUUFBSSxDQUFDQSxDQUFDLENBQUNDLFFBQUgsSUFBZSxDQUFDRCxDQUFDLENBQUNFLE9BQWxCLElBQTZCLENBQUNGLENBQUMsQ0FBQ0csTUFBcEMsRUFBNEM7QUFDM0NILE1BQUFBLENBQUMsQ0FBQ0ksY0FBRixHQUQyQyxDQUN2Qjs7QUFDcEIsNEJBQVNKLENBQUMsQ0FBQ0ssYUFBRixDQUFnQkMsSUFBekI7QUFDQTs7QUFFRCxRQUFJUixLQUFLLENBQUNDLE9BQVYsRUFBbUI7QUFDbEJELE1BQUFBLEtBQUssQ0FBQ0MsT0FBTixDQUFjQyxDQUFkO0FBQ0E7QUFDRCxHQVREOztBQVVBLE1BQU1NLElBQUksR0FDVFIsS0FBSyxDQUFDUSxJQUFOLENBQVdDLE1BQVgsQ0FBa0IsQ0FBbEIsRUFBcUIsQ0FBckIsTUFBNEIsR0FBNUIsR0FDRyw2QkFBZ0JULEtBQUssQ0FBQ1EsSUFEekIsR0FFR1IsS0FBSyxDQUFDUSxJQUhWO0FBS0EsMkJBQVdSLEtBQVg7QUFBa0JRLElBQUFBLElBQUksRUFBSkEsSUFBbEI7QUFBd0JQLElBQUFBLE9BQU8sRUFBUEE7QUFBeEI7QUFDQSxDQWpCTTtBQW1CUDs7Ozs7Ozs7Ozs7Ozs7OztBQVlPLElBQU1TLENBQUMsR0FBRyxTQUFKQSxDQUFJLENBQUNWLEtBQUQ7QUFBQSxTQUFXLGtDQUFPRCxZQUFZLENBQUNDLEtBQUQsQ0FBbkIsQ0FBWDtBQUFBLENBQVYiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XHJcbmltcG9ydCB7bmF2aWdhdGUsIGdldEJhc2VwYXRofSBmcm9tIFwiLi9yb3V0ZXJcIjtcclxuXHJcbi8qKlxyXG4gKiBBY2NlcHRzIEhUTUwgYGFgLXRhZyBwcm9wZXJ0aWVzLCByZXF1aXJpbmcgYGhyZWZgIGFuZCBvcHRpb25hbGx5XHJcbiAqIGBvbkNsaWNrYCwgd2hpY2ggYXJlIGFwcHJvcHJpYXRlbHkgd3JhcHBlZCB0byBhbGxvdyBvdGhlclxyXG4gKiBmcmFtZXdvcmtzIHRvIGJlIHVzZWQgZm9yIGNyZWF0aW5nIGBob29rcm91dGVyYCBuYXZpZ2F0YWJsZSBsaW5rcy5cclxuICpcclxuICogSWYgYG9uQ2xpY2tgIGlzIHN1cHBsaWVkLCB0aGVuIHRoZSBuYXZpZ2F0aW9uIHdpbGwgaGFwcGVuIGJlZm9yZVxyXG4gKiB0aGUgc3VwcGxpZWQgYG9uQ2xpY2tgIGFjdGlvbiFcclxuICpcclxuICogQGV4YW1wbGVcclxuICpcclxuICogJmx0O015RnJhbWV3b3JrTGluayB3aGF0PVwiZXZlclwiIHsuLi51c2VMaW5rKHsgaHJlZjogJy8nIH0pfSZndDtcclxuICogICBMaW5rIHRleHRcclxuICogJmx0Oy9NeUZyYW1ld29ya0xpbmsmZ3Q7XHJcbiAqXHJcbiAqIEBwYXJhbSB7T2JqZWN0fSBwcm9wcyBSZXF1aXJlcyBgaHJlZmAuIGBvbkNsaWNrYCBpcyBvcHRpb25hbC5cclxuICovXHJcbmV4cG9ydCBjb25zdCBzZXRMaW5rUHJvcHMgPSAocHJvcHMpID0+IHtcclxuXHRjb25zdCBvbkNsaWNrID0gKGUpID0+IHtcclxuXHRcdGlmICghZS5zaGlmdEtleSAmJiAhZS5jdHJsS2V5ICYmICFlLmFsdEtleSkge1xyXG5cdFx0XHRlLnByZXZlbnREZWZhdWx0KCk7IC8vIHByZXZlbnQgdGhlIGxpbmsgZnJvbSBhY3R1YWxseSBuYXZpZ2F0aW5nXHJcblx0XHRcdG5hdmlnYXRlKGUuY3VycmVudFRhcmdldC5ocmVmKTtcclxuXHRcdH1cclxuXHJcblx0XHRpZiAocHJvcHMub25DbGljaykge1xyXG5cdFx0XHRwcm9wcy5vbkNsaWNrKGUpO1xyXG5cdFx0fVxyXG5cdH07XHJcblx0Y29uc3QgaHJlZiA9XHJcblx0XHRwcm9wcy5ocmVmLnN1YnN0cigwLCAxKSA9PT0gJy8nXHJcblx0XHRcdD8gZ2V0QmFzZXBhdGgoKSArIHByb3BzLmhyZWZcclxuXHRcdFx0OiBwcm9wcy5ocmVmO1xyXG5cclxuXHRyZXR1cm4gey4uLnByb3BzLCBocmVmLCBvbkNsaWNrfTtcclxufTtcclxuXHJcbi8qKlxyXG4gKiBBY2NlcHRzIHN0YW5kYXJkIEhUTUwgYGFgLXRhZyBwcm9wZXJ0aWVzLiBgaHJlZmAgYW5kLCBvcHRpb25hbGx5LFxyXG4gKiBgb25DbGlja2AgYXJlIHVzZWQgdG8gY3JlYXRlIGxpbmtzIHRoYXQgd29yayB3aXRoIGBob29rcm91dGVyYC5cclxuICpcclxuICogQGV4YW1wbGVcclxuICpcclxuICogJmx0O0EgaHJlZj1cIi9cIiB0YXJnZXQ9XCJfYmxhbmtcIiZndDtcclxuICogICBIb21lXHJcbiAqICZsdDsvQSZndDtcclxuICpcclxuICogQHBhcmFtIHtPYmplY3R9IHByb3BzIFJlcXVpcmVzIGBocmVmYC4gYG9uQ2xpY2tgIGlzIG9wdGlvbmFsXHJcbiAqL1xyXG5leHBvcnQgY29uc3QgQSA9IChwcm9wcykgPT4gPGEgey4uLnNldExpbmtQcm9wcyhwcm9wcyl9IC8+O1xyXG4iXX0=
+
+/***/ }),
+
+/***/ "./node_modules/hookrouter/dist/controlledInterceptor.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/hookrouter/dist/controlledInterceptor.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useControlledInterceptor = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _interceptor = __webpack_require__(/*! ./interceptor */ "./node_modules/hookrouter/dist/interceptor.js");
+
+var _router = __webpack_require__(/*! ./router */ "./node_modules/hookrouter/dist/router.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+/**
+ * This is a controlled version of the interceptor which cancels any navigation intent
+ * and hands control over it to your calling component.
+ *
+ * `interceptedPath` is initially `null` and will be set to the target path upon navigation.
+ * `confirmNavigation` is the callback to be called to stop the interception and navigate to the last path.
+ * `resetPath` is a callback that resets `interceptedPath` back to `null`.
+ *
+ * @returns {Array} [interceptedPath, confirmNavigation, resetPath]
+ */
+var useControlledInterceptor = function useControlledInterceptor() {
+  var _React$useState = _react.default.useState(null),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      interceptedPath = _React$useState2[0],
+      setInterceptedPath = _React$useState2[1];
+
+  var interceptorFunction = _react.default.useMemo(function () {
+    return function (currentPath, nextPath) {
+      setInterceptedPath(nextPath);
+      return currentPath;
+    };
+  }, [setInterceptedPath]);
+
+  var stopInterception = (0, _interceptor.useInterceptor)(interceptorFunction);
+
+  var confirmNavigation = _react.default.useMemo(function () {
+    return function () {
+      stopInterception();
+      (0, _router.navigate)(interceptedPath);
+    };
+  }, [stopInterception, interceptedPath]);
+
+  var resetPath = _react.default.useMemo(function () {
+    return function () {
+      return setInterceptedPath(null);
+    };
+  }, [setInterceptedPath]);
+
+  return [interceptedPath, confirmNavigation, resetPath, stopInterception];
+};
+
+exports.useControlledInterceptor = useControlledInterceptor;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9jb250cm9sbGVkSW50ZXJjZXB0b3IuanMiXSwibmFtZXMiOlsidXNlQ29udHJvbGxlZEludGVyY2VwdG9yIiwiUmVhY3QiLCJ1c2VTdGF0ZSIsImludGVyY2VwdGVkUGF0aCIsInNldEludGVyY2VwdGVkUGF0aCIsImludGVyY2VwdG9yRnVuY3Rpb24iLCJ1c2VNZW1vIiwiY3VycmVudFBhdGgiLCJuZXh0UGF0aCIsInN0b3BJbnRlcmNlcHRpb24iLCJjb25maXJtTmF2aWdhdGlvbiIsInJlc2V0UGF0aCJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztBQUNBOztBQUNBOzs7Ozs7Ozs7Ozs7QUFFQTs7Ozs7Ozs7OztBQVVPLElBQU1BLHdCQUF3QixHQUFHLFNBQTNCQSx3QkFBMkIsR0FBTTtBQUFBLHdCQUNDQyxlQUFNQyxRQUFOLENBQWUsSUFBZixDQUREO0FBQUE7QUFBQSxNQUN0Q0MsZUFEc0M7QUFBQSxNQUNyQkMsa0JBRHFCOztBQUc3QyxNQUFNQyxtQkFBbUIsR0FBR0osZUFBTUssT0FBTixDQUMzQjtBQUFBLFdBQU0sVUFBQ0MsV0FBRCxFQUFjQyxRQUFkLEVBQTJCO0FBQ2hDSixNQUFBQSxrQkFBa0IsQ0FBQ0ksUUFBRCxDQUFsQjtBQUNBLGFBQU9ELFdBQVA7QUFDQSxLQUhEO0FBQUEsR0FEMkIsRUFLM0IsQ0FBQ0gsa0JBQUQsQ0FMMkIsQ0FBNUI7O0FBUUEsTUFBTUssZ0JBQWdCLEdBQUcsaUNBQWVKLG1CQUFmLENBQXpCOztBQUVBLE1BQU1LLGlCQUFpQixHQUFHVCxlQUFNSyxPQUFOLENBQ3pCO0FBQUEsV0FBTSxZQUFNO0FBQ1hHLE1BQUFBLGdCQUFnQjtBQUNoQiw0QkFBU04sZUFBVDtBQUNBLEtBSEQ7QUFBQSxHQUR5QixFQUt6QixDQUFDTSxnQkFBRCxFQUFtQk4sZUFBbkIsQ0FMeUIsQ0FBMUI7O0FBUUEsTUFBTVEsU0FBUyxHQUFHVixlQUFNSyxPQUFOLENBQ2pCO0FBQUEsV0FBTTtBQUFBLGFBQU1GLGtCQUFrQixDQUFDLElBQUQsQ0FBeEI7QUFBQSxLQUFOO0FBQUEsR0FEaUIsRUFFakIsQ0FBQ0Esa0JBQUQsQ0FGaUIsQ0FBbEI7O0FBS0EsU0FBTyxDQUFDRCxlQUFELEVBQWtCTyxpQkFBbEIsRUFBcUNDLFNBQXJDLEVBQWdERixnQkFBaEQsQ0FBUDtBQUNBLENBM0JNIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcclxuaW1wb3J0IHt1c2VJbnRlcmNlcHRvcn0gZnJvbSBcIi4vaW50ZXJjZXB0b3JcIjtcclxuaW1wb3J0IHtuYXZpZ2F0ZX0gZnJvbSBcIi4vcm91dGVyXCI7XHJcblxyXG4vKipcclxuICogVGhpcyBpcyBhIGNvbnRyb2xsZWQgdmVyc2lvbiBvZiB0aGUgaW50ZXJjZXB0b3Igd2hpY2ggY2FuY2VscyBhbnkgbmF2aWdhdGlvbiBpbnRlbnRcclxuICogYW5kIGhhbmRzIGNvbnRyb2wgb3ZlciBpdCB0byB5b3VyIGNhbGxpbmcgY29tcG9uZW50LlxyXG4gKlxyXG4gKiBgaW50ZXJjZXB0ZWRQYXRoYCBpcyBpbml0aWFsbHkgYG51bGxgIGFuZCB3aWxsIGJlIHNldCB0byB0aGUgdGFyZ2V0IHBhdGggdXBvbiBuYXZpZ2F0aW9uLlxyXG4gKiBgY29uZmlybU5hdmlnYXRpb25gIGlzIHRoZSBjYWxsYmFjayB0byBiZSBjYWxsZWQgdG8gc3RvcCB0aGUgaW50ZXJjZXB0aW9uIGFuZCBuYXZpZ2F0ZSB0byB0aGUgbGFzdCBwYXRoLlxyXG4gKiBgcmVzZXRQYXRoYCBpcyBhIGNhbGxiYWNrIHRoYXQgcmVzZXRzIGBpbnRlcmNlcHRlZFBhdGhgIGJhY2sgdG8gYG51bGxgLlxyXG4gKlxyXG4gKiBAcmV0dXJucyB7QXJyYXl9IFtpbnRlcmNlcHRlZFBhdGgsIGNvbmZpcm1OYXZpZ2F0aW9uLCByZXNldFBhdGhdXHJcbiAqL1xyXG5leHBvcnQgY29uc3QgdXNlQ29udHJvbGxlZEludGVyY2VwdG9yID0gKCkgPT4ge1xyXG5cdGNvbnN0IFtpbnRlcmNlcHRlZFBhdGgsIHNldEludGVyY2VwdGVkUGF0aF0gPSBSZWFjdC51c2VTdGF0ZShudWxsKTtcclxuXHJcblx0Y29uc3QgaW50ZXJjZXB0b3JGdW5jdGlvbiA9IFJlYWN0LnVzZU1lbW8oXHJcblx0XHQoKSA9PiAoY3VycmVudFBhdGgsIG5leHRQYXRoKSA9PiB7XHJcblx0XHRcdHNldEludGVyY2VwdGVkUGF0aChuZXh0UGF0aCk7XHJcblx0XHRcdHJldHVybiBjdXJyZW50UGF0aDtcclxuXHRcdH0sXHJcblx0XHRbc2V0SW50ZXJjZXB0ZWRQYXRoXVxyXG5cdCk7XHJcblxyXG5cdGNvbnN0IHN0b3BJbnRlcmNlcHRpb24gPSB1c2VJbnRlcmNlcHRvcihpbnRlcmNlcHRvckZ1bmN0aW9uKTtcclxuXHJcblx0Y29uc3QgY29uZmlybU5hdmlnYXRpb24gPSBSZWFjdC51c2VNZW1vKFxyXG5cdFx0KCkgPT4gKCkgPT4ge1xyXG5cdFx0XHRzdG9wSW50ZXJjZXB0aW9uKCk7XHJcblx0XHRcdG5hdmlnYXRlKGludGVyY2VwdGVkUGF0aCk7XHJcblx0XHR9LFxyXG5cdFx0W3N0b3BJbnRlcmNlcHRpb24sIGludGVyY2VwdGVkUGF0aF1cclxuXHQpO1xyXG5cclxuXHRjb25zdCByZXNldFBhdGggPSBSZWFjdC51c2VNZW1vKFxyXG5cdFx0KCkgPT4gKCkgPT4gc2V0SW50ZXJjZXB0ZWRQYXRoKG51bGwpLFxyXG5cdFx0W3NldEludGVyY2VwdGVkUGF0aF1cclxuXHQpO1xyXG5cclxuXHRyZXR1cm4gW2ludGVyY2VwdGVkUGF0aCwgY29uZmlybU5hdmlnYXRpb24sIHJlc2V0UGF0aCwgc3RvcEludGVyY2VwdGlvbl07XHJcbn07XHJcbiJdfQ==
+
+/***/ }),
+
+/***/ "./node_modules/hookrouter/dist/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/hookrouter/dist/index.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "A", {
+  enumerable: true,
+  get: function get() {
+    return _Link.A;
+  }
+});
+Object.defineProperty(exports, "setLinkProps", {
+  enumerable: true,
+  get: function get() {
+    return _Link.setLinkProps;
+  }
+});
+Object.defineProperty(exports, "useRedirect", {
+  enumerable: true,
+  get: function get() {
+    return _redirect.default;
+  }
+});
+Object.defineProperty(exports, "useQueryParams", {
+  enumerable: true,
+  get: function get() {
+    return _queryParams.useQueryParams;
+  }
+});
+Object.defineProperty(exports, "setQueryParams", {
+  enumerable: true,
+  get: function get() {
+    return _queryParams.setQueryParams;
+  }
+});
+Object.defineProperty(exports, "getQueryParams", {
+  enumerable: true,
+  get: function get() {
+    return _queryParams.getQueryParams;
+  }
+});
+Object.defineProperty(exports, "useInterceptor", {
+  enumerable: true,
+  get: function get() {
+    return _interceptor.useInterceptor;
+  }
+});
+Object.defineProperty(exports, "useControlledInterceptor", {
+  enumerable: true,
+  get: function get() {
+    return _controlledInterceptor.useControlledInterceptor;
+  }
+});
+Object.defineProperty(exports, "useTitle", {
+  enumerable: true,
+  get: function get() {
+    return _title.useTitle;
+  }
+});
+Object.defineProperty(exports, "getTitle", {
+  enumerable: true,
+  get: function get() {
+    return _title.getTitle;
+  }
+});
+Object.defineProperty(exports, "navigate", {
+  enumerable: true,
+  get: function get() {
+    return _router.navigate;
+  }
+});
+Object.defineProperty(exports, "useRoutes", {
+  enumerable: true,
+  get: function get() {
+    return _router.useRoutes;
+  }
+});
+Object.defineProperty(exports, "setPath", {
+  enumerable: true,
+  get: function get() {
+    return _router.setPath;
+  }
+});
+Object.defineProperty(exports, "getPath", {
+  enumerable: true,
+  get: function get() {
+    return _router.getPath;
+  }
+});
+Object.defineProperty(exports, "getWorkingPath", {
+  enumerable: true,
+  get: function get() {
+    return _router.getWorkingPath;
+  }
+});
+Object.defineProperty(exports, "setBasepath", {
+  enumerable: true,
+  get: function get() {
+    return _router.setBasepath;
+  }
+});
+Object.defineProperty(exports, "getBasepath", {
+  enumerable: true,
+  get: function get() {
+    return _router.getBasepath;
+  }
+});
+Object.defineProperty(exports, "usePath", {
+  enumerable: true,
+  get: function get() {
+    return _router.usePath;
+  }
+});
+
+var _Link = __webpack_require__(/*! ./Link */ "./node_modules/hookrouter/dist/Link.js");
+
+var _redirect = _interopRequireDefault(__webpack_require__(/*! ./redirect */ "./node_modules/hookrouter/dist/redirect.js"));
+
+var _queryParams = __webpack_require__(/*! ./queryParams */ "./node_modules/hookrouter/dist/queryParams.js");
+
+var _interceptor = __webpack_require__(/*! ./interceptor */ "./node_modules/hookrouter/dist/interceptor.js");
+
+var _controlledInterceptor = __webpack_require__(/*! ./controlledInterceptor */ "./node_modules/hookrouter/dist/controlledInterceptor.js");
+
+var _title = __webpack_require__(/*! ./title */ "./node_modules/hookrouter/dist/title.js");
+
+var _router = __webpack_require__(/*! ./router */ "./node_modules/hookrouter/dist/router.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9pbmRleC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7QSwgc2V0TGlua1Byb3BzfSBmcm9tICcuL0xpbmsnO1xyXG5pbXBvcnQgdXNlUmVkaXJlY3QgZnJvbSAnLi9yZWRpcmVjdCc7XHJcbmltcG9ydCB7dXNlUXVlcnlQYXJhbXMsIHNldFF1ZXJ5UGFyYW1zLCBnZXRRdWVyeVBhcmFtc30gZnJvbSBcIi4vcXVlcnlQYXJhbXNcIjtcclxuaW1wb3J0IHt1c2VJbnRlcmNlcHRvcn0gZnJvbSAnLi9pbnRlcmNlcHRvcic7XHJcbmltcG9ydCB7dXNlQ29udHJvbGxlZEludGVyY2VwdG9yfSBmcm9tICcuL2NvbnRyb2xsZWRJbnRlcmNlcHRvcic7XHJcbmltcG9ydCB7dXNlVGl0bGUsIGdldFRpdGxlfSBmcm9tICcuL3RpdGxlJztcclxuaW1wb3J0IHtcclxuXHRuYXZpZ2F0ZSxcclxuXHR1c2VSb3V0ZXMsXHJcblx0c2V0UGF0aCxcclxuXHRnZXRQYXRoLFxyXG5cdGdldFdvcmtpbmdQYXRoLFxyXG5cdHNldEJhc2VwYXRoLFxyXG5cdGdldEJhc2VwYXRoLFxyXG5cdHVzZVBhdGgsXHJcbn0gZnJvbSAnLi9yb3V0ZXInO1xyXG5cclxuZXhwb3J0IHtcclxuXHRBLFxyXG5cdHNldExpbmtQcm9wcyxcclxuXHR1c2VSZWRpcmVjdCxcclxuXHR1c2VUaXRsZSxcclxuXHRnZXRUaXRsZSxcclxuXHR1c2VRdWVyeVBhcmFtcyxcclxuXHR1c2VJbnRlcmNlcHRvcixcclxuXHR1c2VDb250cm9sbGVkSW50ZXJjZXB0b3IsXHJcblx0bmF2aWdhdGUsXHJcblx0dXNlUm91dGVzLFxyXG5cdHNldFBhdGgsXHJcblx0Z2V0UGF0aCxcclxuXHRnZXRXb3JraW5nUGF0aCxcclxuXHRzZXRRdWVyeVBhcmFtcyxcclxuXHRnZXRRdWVyeVBhcmFtcyxcclxuXHRzZXRCYXNlcGF0aCxcclxuXHRnZXRCYXNlcGF0aCxcclxuXHR1c2VQYXRoXHJcbn07XHJcbiJdfQ==
+
+/***/ }),
+
+/***/ "./node_modules/hookrouter/dist/interceptor.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/hookrouter/dist/interceptor.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useInterceptor = exports.interceptRoute = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var incrementalId = 1;
+var interceptors = [];
+
+var interceptRoute = function interceptRoute(previousRoute, nextRoute) {
+  if (!interceptors.length) {
+    return nextRoute;
+  }
+
+  return interceptors.reduceRight(function (nextRoute, interceptor) {
+    return nextRoute === previousRoute ? nextRoute : interceptor.handlerFunction(previousRoute, nextRoute);
+  }, nextRoute);
+};
+
+exports.interceptRoute = interceptRoute;
+
+var get = function get(componentId) {
+  return interceptors.find(function (obj) {
+    return obj.componentId === componentId;
+  }) || null;
+};
+
+var remove = function remove(componentId) {
+  var index = interceptors.findIndex(function (obj) {
+    return obj.componentId === componentId;
+  });
+
+  if (index !== -1) {
+    interceptors.splice(index, 1);
+  }
+};
+
+var useInterceptor = function useInterceptor(handlerFunction) {
+  var _React$useState = _react.default.useState(incrementalId++),
+      _React$useState2 = _slicedToArray(_React$useState, 1),
+      componentId = _React$useState2[0];
+
+  var obj = get(componentId);
+
+  if (!obj) {
+    obj = {
+      componentId: componentId,
+      stop: function stop() {
+        return remove(componentId);
+      },
+      handlerFunction: handlerFunction
+    };
+    interceptors.unshift(obj);
+  }
+
+  _react.default.useEffect(function () {
+    return function () {
+      return obj.stop();
+    };
+  }, []);
+
+  return obj.stop;
+};
+
+exports.useInterceptor = useInterceptor;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9pbnRlcmNlcHRvci5qcyJdLCJuYW1lcyI6WyJpbmNyZW1lbnRhbElkIiwiaW50ZXJjZXB0b3JzIiwiaW50ZXJjZXB0Um91dGUiLCJwcmV2aW91c1JvdXRlIiwibmV4dFJvdXRlIiwibGVuZ3RoIiwicmVkdWNlUmlnaHQiLCJpbnRlcmNlcHRvciIsImhhbmRsZXJGdW5jdGlvbiIsImdldCIsImNvbXBvbmVudElkIiwiZmluZCIsIm9iaiIsInJlbW92ZSIsImluZGV4IiwiZmluZEluZGV4Iiwic3BsaWNlIiwidXNlSW50ZXJjZXB0b3IiLCJSZWFjdCIsInVzZVN0YXRlIiwic3RvcCIsInVuc2hpZnQiLCJ1c2VFZmZlY3QiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTs7Ozs7Ozs7Ozs7O0FBRUEsSUFBSUEsYUFBYSxHQUFHLENBQXBCO0FBRUEsSUFBTUMsWUFBWSxHQUFHLEVBQXJCOztBQUVPLElBQU1DLGNBQWMsR0FBRyxTQUFqQkEsY0FBaUIsQ0FBQ0MsYUFBRCxFQUFnQkMsU0FBaEIsRUFBOEI7QUFDM0QsTUFBSSxDQUFDSCxZQUFZLENBQUNJLE1BQWxCLEVBQTBCO0FBQ3pCLFdBQU9ELFNBQVA7QUFDQTs7QUFFRCxTQUFPSCxZQUFZLENBQUNLLFdBQWIsQ0FDTixVQUFDRixTQUFELEVBQVlHLFdBQVo7QUFBQSxXQUE0QkgsU0FBUyxLQUFLRCxhQUFkLEdBQ3pCQyxTQUR5QixHQUV6QkcsV0FBVyxDQUFDQyxlQUFaLENBQTRCTCxhQUE1QixFQUEyQ0MsU0FBM0MsQ0FGSDtBQUFBLEdBRE0sRUFJTkEsU0FKTSxDQUFQO0FBTUEsQ0FYTTs7OztBQWFQLElBQU1LLEdBQUcsR0FBRyxTQUFOQSxHQUFNLENBQUNDLFdBQUQ7QUFBQSxTQUFpQlQsWUFBWSxDQUFDVSxJQUFiLENBQWtCLFVBQUFDLEdBQUc7QUFBQSxXQUFJQSxHQUFHLENBQUNGLFdBQUosS0FBb0JBLFdBQXhCO0FBQUEsR0FBckIsS0FBNkQsSUFBOUU7QUFBQSxDQUFaOztBQUNBLElBQU1HLE1BQU0sR0FBRyxTQUFUQSxNQUFTLENBQUNILFdBQUQsRUFBaUI7QUFDL0IsTUFBTUksS0FBSyxHQUFHYixZQUFZLENBQUNjLFNBQWIsQ0FBdUIsVUFBQUgsR0FBRztBQUFBLFdBQUlBLEdBQUcsQ0FBQ0YsV0FBSixLQUFvQkEsV0FBeEI7QUFBQSxHQUExQixDQUFkOztBQUNBLE1BQUlJLEtBQUssS0FBSyxDQUFDLENBQWYsRUFBa0I7QUFDakJiLElBQUFBLFlBQVksQ0FBQ2UsTUFBYixDQUFvQkYsS0FBcEIsRUFBMkIsQ0FBM0I7QUFDQTtBQUNELENBTEQ7O0FBT08sSUFBTUcsY0FBYyxHQUFHLFNBQWpCQSxjQUFpQixDQUFDVCxlQUFELEVBQXFCO0FBQUEsd0JBQzVCVSxlQUFNQyxRQUFOLENBQWVuQixhQUFhLEVBQTVCLENBRDRCO0FBQUE7QUFBQSxNQUMzQ1UsV0FEMkM7O0FBR2xELE1BQUlFLEdBQUcsR0FBR0gsR0FBRyxDQUFDQyxXQUFELENBQWI7O0FBRUEsTUFBSSxDQUFDRSxHQUFMLEVBQVU7QUFDVEEsSUFBQUEsR0FBRyxHQUFHO0FBQ0xGLE1BQUFBLFdBQVcsRUFBWEEsV0FESztBQUVMVSxNQUFBQSxJQUFJLEVBQUU7QUFBQSxlQUFNUCxNQUFNLENBQUNILFdBQUQsQ0FBWjtBQUFBLE9BRkQ7QUFHTEYsTUFBQUEsZUFBZSxFQUFmQTtBQUhLLEtBQU47QUFNQVAsSUFBQUEsWUFBWSxDQUFDb0IsT0FBYixDQUFxQlQsR0FBckI7QUFDQTs7QUFFRE0saUJBQU1JLFNBQU4sQ0FBZ0I7QUFBQSxXQUFNO0FBQUEsYUFBTVYsR0FBRyxDQUFDUSxJQUFKLEVBQU47QUFBQSxLQUFOO0FBQUEsR0FBaEIsRUFBd0MsRUFBeEM7O0FBRUEsU0FBT1IsR0FBRyxDQUFDUSxJQUFYO0FBQ0EsQ0FsQk0iLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xyXG5cclxubGV0IGluY3JlbWVudGFsSWQgPSAxO1xyXG5cclxuY29uc3QgaW50ZXJjZXB0b3JzID0gW107XHJcblxyXG5leHBvcnQgY29uc3QgaW50ZXJjZXB0Um91dGUgPSAocHJldmlvdXNSb3V0ZSwgbmV4dFJvdXRlKSA9PiB7XHJcblx0aWYgKCFpbnRlcmNlcHRvcnMubGVuZ3RoKSB7XHJcblx0XHRyZXR1cm4gbmV4dFJvdXRlO1xyXG5cdH1cclxuXHJcblx0cmV0dXJuIGludGVyY2VwdG9ycy5yZWR1Y2VSaWdodChcclxuXHRcdChuZXh0Um91dGUsIGludGVyY2VwdG9yKSA9PiBuZXh0Um91dGUgPT09IHByZXZpb3VzUm91dGVcclxuXHRcdFx0PyBuZXh0Um91dGVcclxuXHRcdFx0OiBpbnRlcmNlcHRvci5oYW5kbGVyRnVuY3Rpb24ocHJldmlvdXNSb3V0ZSwgbmV4dFJvdXRlKSxcclxuXHRcdG5leHRSb3V0ZVxyXG5cdCk7XHJcbn07XHJcblxyXG5jb25zdCBnZXQgPSAoY29tcG9uZW50SWQpID0+IGludGVyY2VwdG9ycy5maW5kKG9iaiA9PiBvYmouY29tcG9uZW50SWQgPT09IGNvbXBvbmVudElkKSB8fCBudWxsO1xyXG5jb25zdCByZW1vdmUgPSAoY29tcG9uZW50SWQpID0+IHtcclxuXHRjb25zdCBpbmRleCA9IGludGVyY2VwdG9ycy5maW5kSW5kZXgob2JqID0+IG9iai5jb21wb25lbnRJZCA9PT0gY29tcG9uZW50SWQpO1xyXG5cdGlmIChpbmRleCAhPT0gLTEpIHtcclxuXHRcdGludGVyY2VwdG9ycy5zcGxpY2UoaW5kZXgsIDEpO1xyXG5cdH1cclxufTtcclxuXHJcbmV4cG9ydCBjb25zdCB1c2VJbnRlcmNlcHRvciA9IChoYW5kbGVyRnVuY3Rpb24pID0+IHtcclxuXHRjb25zdCBbY29tcG9uZW50SWRdID0gUmVhY3QudXNlU3RhdGUoaW5jcmVtZW50YWxJZCsrKTtcclxuXHJcblx0bGV0IG9iaiA9IGdldChjb21wb25lbnRJZCk7XHJcblxyXG5cdGlmICghb2JqKSB7XHJcblx0XHRvYmogPSB7XHJcblx0XHRcdGNvbXBvbmVudElkLFxyXG5cdFx0XHRzdG9wOiAoKSA9PiByZW1vdmUoY29tcG9uZW50SWQpLFxyXG5cdFx0XHRoYW5kbGVyRnVuY3Rpb25cclxuXHRcdH07XHJcblxyXG5cdFx0aW50ZXJjZXB0b3JzLnVuc2hpZnQob2JqKTtcclxuXHR9XHJcblxyXG5cdFJlYWN0LnVzZUVmZmVjdCgoKSA9PiAoKSA9PiBvYmouc3RvcCgpLCBbXSk7XHJcblxyXG5cdHJldHVybiBvYmouc3RvcDtcclxufTtcclxuIl19
+
+/***/ }),
+
+/***/ "./node_modules/hookrouter/dist/isNode.js":
+/*!************************************************!*\
+  !*** ./node_modules/hookrouter/dist/isNode.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var wIsNode = true;
+
+try {
+  wIsNode = window === undefined;
+} catch (e) {}
+
+var _default = wIsNode;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9pc05vZGUuanMiXSwibmFtZXMiOlsid0lzTm9kZSIsIndpbmRvdyIsInVuZGVmaW5lZCIsImUiXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBLElBQUlBLE9BQU8sR0FBRyxJQUFkOztBQUNBLElBQUk7QUFDSEEsRUFBQUEsT0FBTyxHQUFHQyxNQUFNLEtBQUtDLFNBQXJCO0FBQ0EsQ0FGRCxDQUVFLE9BQU9DLENBQVAsRUFBVSxDQUNYOztlQUVjSCxPIiwic291cmNlc0NvbnRlbnQiOlsibGV0IHdJc05vZGUgPSB0cnVlO1xyXG50cnkge1xyXG5cdHdJc05vZGUgPSB3aW5kb3cgPT09IHVuZGVmaW5lZDtcclxufSBjYXRjaCAoZSkge1xyXG59XHJcblxyXG5leHBvcnQgZGVmYXVsdCB3SXNOb2RlO1xyXG4iXX0=
+
+/***/ }),
+
+/***/ "./node_modules/hookrouter/dist/queryParams.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/hookrouter/dist/queryParams.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useQueryParams = exports.getQueryParams = exports.setQueryParams = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _isNode = _interopRequireDefault(__webpack_require__(/*! ./isNode */ "./node_modules/hookrouter/dist/isNode.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var queryParamListeners = [];
+var queryParamObject = {};
+
+var setQueryParams = function setQueryParams(inObj) {
+  var replace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+  if (!(inObj instanceof Object)) {
+    throw new Error('Object required');
+  }
+
+  if (replace) {
+    queryParamObject = inObj;
+  } else {
+    Object.assign(queryParamObject, inObj);
+  }
+
+  var now = Date.now();
+  queryParamListeners.forEach(function (cb) {
+    return cb(now);
+  });
+
+  if (!_isNode.default) {
+    var qs = '?' + objectToQueryString(queryParamObject);
+
+    if (qs === location.search) {
+      return;
+    }
+
+    history.replaceState(null, null, location.pathname + (qs !== '?' ? qs : ''));
+  }
+};
+
+exports.setQueryParams = setQueryParams;
+
+var getQueryParams = function getQueryParams() {
+  return Object.assign({}, queryParamObject);
+};
+/**
+ * This takes an URL query string and converts it into a javascript object.
+ * @param {string} inStr
+ * @return {object}
+ */
+
+
+exports.getQueryParams = getQueryParams;
+
+var queryStringToObject = function queryStringToObject(inStr) {
+  var p = new URLSearchParams(inStr);
+  var result = {};
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = p[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var param = _step.value;
+      result[param[0]] = param[1];
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return != null) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  return result;
+};
+/**
+ * This takes a javascript object and turns it into a URL query string.
+ * @param {object} inObj
+ * @return {string}
+ */
+
+
+var objectToQueryString = function objectToQueryString(inObj) {
+  var qs = new URLSearchParams();
+  Object.entries(inObj).forEach(function (_ref) {
+    var _ref2 = _slicedToArray(_ref, 2),
+        key = _ref2[0],
+        value = _ref2[1];
+
+    return value !== undefined ? qs.append(key, value) : null;
+  });
+  return qs.toString();
+};
+
+if (!_isNode.default) {
+  queryParamObject = queryStringToObject(location.search.substr(1));
+}
+/**
+ * This hook returns the currently set query parameters as object and offers a setter function
+ * to set a new query string.
+ *
+ * All components that are hooked to the query parameters will get updated if they change.
+ * Query params can also be updated along with the path, by calling `navigate(url, queryParams)`.
+ *
+ * @returns {array} [queryParamObject, setQueryParams]
+ */
+
+
+var useQueryParams = function useQueryParams() {
+  var setUpdate = _react.default.useState(0)[1];
+
+  _react.default.useEffect(function () {
+    queryParamListeners.push(setUpdate);
+    return function () {
+      var index = queryParamListeners.indexOf(setUpdate);
+
+      if (index === -1) {
+        return;
+      }
+
+      queryParamListeners.splice(index, 1);
+    };
+  }, [setUpdate]);
+
+  return [queryParamObject, setQueryParams];
+};
+
+exports.useQueryParams = useQueryParams;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9xdWVyeVBhcmFtcy5qcyJdLCJuYW1lcyI6WyJxdWVyeVBhcmFtTGlzdGVuZXJzIiwicXVlcnlQYXJhbU9iamVjdCIsInNldFF1ZXJ5UGFyYW1zIiwiaW5PYmoiLCJyZXBsYWNlIiwiT2JqZWN0IiwiRXJyb3IiLCJhc3NpZ24iLCJub3ciLCJEYXRlIiwiZm9yRWFjaCIsImNiIiwiaXNOb2RlIiwicXMiLCJvYmplY3RUb1F1ZXJ5U3RyaW5nIiwibG9jYXRpb24iLCJzZWFyY2giLCJoaXN0b3J5IiwicmVwbGFjZVN0YXRlIiwicGF0aG5hbWUiLCJnZXRRdWVyeVBhcmFtcyIsInF1ZXJ5U3RyaW5nVG9PYmplY3QiLCJpblN0ciIsInAiLCJVUkxTZWFyY2hQYXJhbXMiLCJyZXN1bHQiLCJwYXJhbSIsImVudHJpZXMiLCJrZXkiLCJ2YWx1ZSIsInVuZGVmaW5lZCIsImFwcGVuZCIsInRvU3RyaW5nIiwic3Vic3RyIiwidXNlUXVlcnlQYXJhbXMiLCJzZXRVcGRhdGUiLCJSZWFjdCIsInVzZVN0YXRlIiwidXNlRWZmZWN0IiwicHVzaCIsImluZGV4IiwiaW5kZXhPZiIsInNwbGljZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztBQUNBOzs7Ozs7Ozs7Ozs7QUFFQSxJQUFNQSxtQkFBbUIsR0FBRyxFQUE1QjtBQUNBLElBQUlDLGdCQUFnQixHQUFHLEVBQXZCOztBQUVPLElBQU1DLGNBQWMsR0FBRyxTQUFqQkEsY0FBaUIsQ0FBQ0MsS0FBRCxFQUE0QjtBQUFBLE1BQXBCQyxPQUFvQix1RUFBVixLQUFVOztBQUN6RCxNQUFHLEVBQUVELEtBQUssWUFBWUUsTUFBbkIsQ0FBSCxFQUE4QjtBQUM3QixVQUFNLElBQUlDLEtBQUosQ0FBVSxpQkFBVixDQUFOO0FBQ0E7O0FBQ0QsTUFBR0YsT0FBSCxFQUFXO0FBQ1ZILElBQUFBLGdCQUFnQixHQUFHRSxLQUFuQjtBQUNBLEdBRkQsTUFFTztBQUNORSxJQUFBQSxNQUFNLENBQUNFLE1BQVAsQ0FBY04sZ0JB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RCxFQVVHLENBQUNMLFNBQUQsQ0FWSDs7QUFZQSxTQUFPLENBQUNsQyxnQkFBRCxFQUFtQkMsY0FBbkIsQ0FBUDtBQUNBLENBaEJNIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcclxuaW1wb3J0IGlzTm9kZSBmcm9tICcuL2lzTm9kZSc7XHJcblxyXG5jb25zdCBxdWVyeVBhcmFtTGlzdGVuZXJzID0gW107XHJcbmxldCBxdWVyeVBhcmFtT2JqZWN0ID0ge307XHJcblxyXG5leHBvcnQgY29uc3Qgc2V0UXVlcnlQYXJhbXMgPSAoaW5PYmosIHJlcGxhY2UgPSBmYWxzZSkgPT4ge1xyXG5cdGlmKCEoaW5PYmogaW5zdGFuY2VvZiBPYmplY3QpKXtcclxuXHRcdHRocm93IG5ldyBFcnJvcignT2JqZWN0IHJlcXVpcmVkJyk7XHJcblx0fVxyXG5cdGlmKHJlcGxhY2Upe1xyXG5cdFx0cXVlcnlQYXJhbU9iamVjdCA9IGluT2JqO1xyXG5cdH0gZWxzZSB7XHJcblx0XHRPYmplY3QuYXNzaWduKHF1ZXJ5UGFyYW1PYmplY3QsIGluT2JqKTtcclxuXHR9XHJcblx0Y29uc3Qgbm93ID0gRGF0ZS5ub3coKTtcclxuXHRxdWVyeVBhcmFtTGlzdGVuZXJzLmZvckVhY2goY2IgPT4gY2Iobm93KSk7XHJcblx0aWYgKCFpc05vZGUpIHtcclxuXHRcdGNvbnN0IHFzID0gJz8nICsgb2JqZWN0VG9RdWVyeVN0cmluZyhxdWVyeVBhcmFtT2JqZWN0KTtcclxuXHRcdGlmKHFzID09PSBsb2NhdGlvbi5zZWFyY2gpIHtcclxuXHRcdFx0cmV0dXJuO1xyXG5cdFx0fVxyXG5cdFx0aGlzdG9yeS5yZXBsYWNlU3RhdGUobnVsbCwgbnVsbCwgbG9jYXRpb24ucGF0aG5hbWUgKyAocXMgIT09ICc/JyA/IHFzIDogJycpKTtcclxuXHR9XHJcbn07XHJcblxyXG5leHBvcnQgY29uc3QgZ2V0UXVlcnlQYXJhbXMgPSAoKSA9PiBPYmplY3QuYXNzaWduKHt9LCBxdWVyeVBhcmFtT2JqZWN0KTtcclxuXHJcbi8qKlxyXG4gKiBUaGlzIHRha2VzIGFuIFVSTCBxdWVyeSBzdHJpbmcgYW5kIGNvbnZlcnRzIGl0IGludG8gYSBqYXZhc2NyaXB0IG9iamVjdC5cclxuICogQHBhcmFtIHtzdHJpbmd9IGluU3RyXHJcbiAqIEByZXR1cm4ge29iamVjdH1cclxuICovXHJcbmNvbnN0IHF1ZXJ5U3RyaW5nVG9PYmplY3QgPSAoaW5TdHIpID0+IHtcclxuXHRjb25zdCBwID0gbmV3IFVSTFNlYXJjaFBhcmFtcyhpblN0cik7XHJcblx0bGV0IHJlc3VsdCA9IHt9O1xyXG5cdGZvciAobGV0IHBhcmFtIG9mIHApIHtcclxuXHRcdHJlc3VsdFtwYXJhbVswXV0gPSBwYXJhbVsxXTtcclxuXHR9XHJcblx0cmV0dXJuIHJlc3VsdDtcclxufTtcclxuXHJcbi8qKlxyXG4gKiBUaGlzIHRha2VzIGEgamF2YXNjcmlwdCBvYmplY3QgYW5kIHR1cm5zIGl0IGludG8gYSBVUkwgcXVlcnkgc3RyaW5nLlxyXG4gKiBAcGFyYW0ge29iamVjdH0gaW5PYmpcclxuICogQHJldHVybiB7c3RyaW5nfVxyXG4gKi9cclxuY29uc3Qgb2JqZWN0VG9RdWVyeVN0cmluZyA9IChpbk9iaikgPT4ge1xyXG5cdGNvbnN0IHFzID0gbmV3IFVSTFNlYXJjaFBhcmFtcygpO1xyXG5cdE9iamVjdC5lbnRyaWVzKGluT2JqKS5mb3JFYWNoKChba2V5LCB2YWx1ZV0pID0+IHZhbHVlICE9PSB1bmRlZmluZWQgPyBxcy5hcHBlbmQoa2V5LCB2YWx1ZSkgOiBudWxsKTtcclxuXHRyZXR1cm4gcXMudG9TdHJpbmcoKTtcclxufTtcclxuXHJcbmlmKCFpc05vZGUpe1xyXG5cdHF1ZXJ5UGFyYW1PYmplY3QgPSBxdWVyeVN0cmluZ1RvT2JqZWN0KGxvY2F0aW9uLnNlYXJjaC5zdWJzdHIoMSkpO1xyXG59XHJcblxyXG4vKipcclxuICogVGhpcyBob29rIHJldHVybnMgdGhlIGN1cnJlbnRseSBzZXQgcXVlcnkgcGFyYW1ldGVycyBhcyBvYmplY3QgYW5kIG9mZmVycyBhIHNldHRlciBmdW5jdGlvblxyXG4gKiB0byBzZXQgYSBuZXcgcXVlcnkgc3RyaW5nLlxyXG4gKlxyXG4gKiBBbGwgY29tcG9uZW50cyB0aGF0IGFyZSBob29rZWQgdG8gdGhlIHF1ZXJ5IHBhcmFtZXRlcnMgd2lsbCBnZXQgdXBkYXRlZCBpZiB0aGV5IGNoYW5nZS5cclxuICogUXVlcnkgcGFyYW1zIGNhbiBhbHNvIGJlIHVwZGF0ZWQgYWxvbmcgd2l0aCB0aGUgcGF0aCwgYnkgY2FsbGluZyBgbmF2aWdhdGUodXJsLCBxdWVyeVBhcmFtcylgLlxyXG4gKlxyXG4gKiBAcmV0dXJucyB7YXJyYXl9IFtxdWVyeVBhcmFtT2JqZWN0LCBzZXRRdWVyeVBhcmFtc11cclxuICovXHJcbmV4cG9ydCBjb25zdCB1c2VRdWVyeVBhcmFtcyA9ICgpID0+IHtcclxuXHRjb25zdCBzZXRVcGRhdGUgPSBSZWFjdC51c2VTdGF0ZSgwKVsxXTtcclxuXHJcblx0UmVhY3QudXNlRWZmZWN0KCgpID0+IHtcclxuXHRcdHF1ZXJ5UGFyYW1MaXN0ZW5lcnMucHVzaChzZXRVcGRhdGUpO1xyXG5cclxuXHRcdHJldHVybiAoKSA9PiB7XHJcblx0XHRcdGNvbnN0IGluZGV4ID0gcXVlcnlQYXJhbUxpc3RlbmVycy5pbmRleE9mKHNldFVwZGF0ZSk7XHJcblx0XHRcdGlmIChpbmRleCA9PT0gLTEpIHtcclxuXHRcdFx0XHRyZXR1cm47XHJcblx0XHRcdH1cclxuXHRcdFx0cXVlcnlQYXJhbUxpc3RlbmVycy5zcGxpY2UoaW5kZXgsIDEpO1xyXG5cdFx0fTtcclxuXHR9LCBbc2V0VXBkYXRlXSk7XHJcblxyXG5cdHJldHVybiBbcXVlcnlQYXJhbU9iamVjdCwgc2V0UXVlcnlQYXJhbXNdO1xyXG59O1xyXG4iXX0=
+
+/***/ }),
+
+/***/ "./node_modules/hookrouter/dist/redirect.js":
+/*!**************************************************!*\
+  !*** ./node_modules/hookrouter/dist/redirect.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _router = __webpack_require__(/*! ./router */ "./node_modules/hookrouter/dist/router.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var useRedirect = function useRedirect(fromURL, toURL) {
+  var queryParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var replace = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+
+  var parentRouterId = _react.default.useContext(_router.ParentContext);
+
+  var currentPath = (0, _router.getWorkingPath)(parentRouterId);
+
+  if (currentPath === fromURL) {
+    (0, _router.navigate)(parentRouterId ? ".".concat(toURL) : toURL, replace, queryParams);
+  }
+};
+
+var _default = useRedirect;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9yZWRpcmVjdC5qcyJdLCJuYW1lcyI6WyJ1c2VSZWRpcmVjdCIsImZyb21VUkwiLCJ0b1VSTCIsInF1ZXJ5UGFyYW1zIiwicmVwbGFjZSIsInBhcmVudFJvdXRlcklkIiwiUmVhY3QiLCJ1c2VDb250ZXh0IiwiUGFyZW50Q29udGV4dCIsImN1cnJlbnRQYXRoIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7O0FBQ0E7Ozs7QUFFQSxJQUFNQSxXQUFXLEdBQUcsU0FBZEEsV0FBYyxDQUFDQyxPQUFELEVBQVVDLEtBQVYsRUFBd0Q7QUFBQSxNQUF2Q0MsV0FBdUMsdUVBQXpCLElBQXlCO0FBQUEsTUFBbkJDLE9BQW1CLHVFQUFULElBQVM7O0FBQzNFLE1BQU1DLGNBQWMsR0FBR0MsZUFBTUMsVUFBTixDQUFpQkMscUJBQWpCLENBQXZCOztBQUNBLE1BQU1DLFdBQVcsR0FBRyw0QkFBZUosY0FBZixDQUFwQjs7QUFFQSxNQUFJSSxXQUFXLEtBQUtSLE9BQXBCLEVBQTZCO0FBQzVCLDBCQUFTSSxjQUFjLGNBQU9ILEtBQVAsSUFBaUJBLEtBQXhDLEVBQStDRSxPQUEvQyxFQUF3REQsV0FBeEQ7QUFDQTtBQUNELENBUEQ7O2VBU2VILFciLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xyXG5pbXBvcnQge25hdmlnYXRlLCBQYXJlbnRDb250ZXh0LCBnZXRXb3JraW5nUGF0aH0gZnJvbSAnLi9yb3V0ZXInO1xyXG5cclxuY29uc3QgdXNlUmVkaXJlY3QgPSAoZnJvbVVSTCwgdG9VUkwsIHF1ZXJ5UGFyYW1zID0gbnVsbCwgcmVwbGFjZSA9IHRydWUpID0+IHtcclxuXHRjb25zdCBwYXJlbnRSb3V0ZXJJZCA9IFJlYWN0LnVzZUNvbnRleHQoUGFyZW50Q29udGV4dCk7XHJcblx0Y29uc3QgY3VycmVudFBhdGggPSBnZXRXb3JraW5nUGF0aChwYXJlbnRSb3V0ZXJJZCk7XHJcblxyXG5cdGlmIChjdXJyZW50UGF0aCA9PT0gZnJvbVVSTCkge1xyXG5cdFx0bmF2aWdhdGUocGFyZW50Um91dGVySWQgPyBgLiR7dG9VUkx9YCA6IHRvVVJMLCByZXBsYWNlLCBxdWVyeVBhcmFtcyk7XHJcblx0fVxyXG59O1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgdXNlUmVkaXJlY3Q7XHJcbiJdfQ==
+
+/***/ }),
+
+/***/ "./node_modules/hookrouter/dist/router.js":
+/*!************************************************!*\
+  !*** ./node_modules/hookrouter/dist/router.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useRoutes = exports.getWorkingPath = exports.usePath = exports.getPath = exports.setPath = exports.navigate = exports.ParentContext = exports.getBasepath = exports.setBasepath = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _isNode = _interopRequireDefault(__webpack_require__(/*! ./isNode */ "./node_modules/hookrouter/dist/isNode.js"));
+
+var _queryParams = __webpack_require__(/*! ./queryParams */ "./node_modules/hookrouter/dist/queryParams.js");
+
+var _interceptor = __webpack_require__(/*! ./interceptor */ "./node_modules/hookrouter/dist/interceptor.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var preparedRoutes = {};
+var stack = {};
+var componentId = 1;
+var currentPath = _isNode.default ? '' : location.pathname;
+var basePath = '';
+var basePathRegEx = null;
+var pathUpdaters = [];
+/**
+ * Will define a base path that will be utilized in your routing and navigation.
+ * To be called _before_ any routing or navigation happens.
+ * @param {string} inBasepath
+ */
+
+var setBasepath = function setBasepath(inBasepath) {
+  basePath = inBasepath;
+  basePathRegEx = new RegExp('^' + basePath);
+};
+/**
+ * Returns the currently used base path.
+ * @returns {string}
+ */
+
+
+exports.setBasepath = setBasepath;
+
+var getBasepath = function getBasepath() {
+  return basePath;
+};
+
+exports.getBasepath = getBasepath;
+
+var resolvePath = function resolvePath(inPath) {
+  if (_isNode.default) {
+    var url = __webpack_require__(/*! url */ "./node_modules/url/url.js");
+
+    return url.resolve(currentPath, inPath);
+  }
+
+  var current = new URL(currentPath, location.href);
+  var resolved = new URL(inPath, current);
+  return resolved.pathname;
+};
+
+var ParentContext = _react.default.createContext(null);
+/**
+ * Pass a route string to this function to receive a regular expression.
+ * The transformation will be cached and if you pass the same route a second
+ * time, the cached regex will be returned.
+ * @param {string} inRoute
+ * @returns {Array} [RegExp, propList]
+ */
+
+
+exports.ParentContext = ParentContext;
+
+var prepareRoute = function prepareRoute(inRoute) {
+  if (preparedRoutes[inRoute]) {
+    return preparedRoutes[inRoute];
+  }
+
+  var preparedRoute = [new RegExp("".concat(inRoute.substr(0, 1) === '*' ? '' : '^').concat(inRoute.replace(/:[a-zA-Z]+/g, '([^/]+)').replace(/\*/g, '')).concat(inRoute.substr(-1) === '*' ? '' : '$'))];
+  var propList = inRoute.match(/:[a-zA-Z]+/g);
+  preparedRoute.push(propList ? propList.map(function (paramName) {
+    return paramName.substr(1);
+  }) : []);
+  preparedRoutes[inRoute] = preparedRoute;
+  return preparedRoute;
+};
+/**
+ * Virtually navigates the browser to the given URL and re-processes all routers.
+ * @param {string} url The URL to navigate to. Do not mix adding GET params here and using the `getParams` argument.
+ * @param {boolean} [replace=false] Should the navigation be done with a history replace to prevent back navigation by the user
+ * @param {object} [queryParams] Key/Value pairs to convert into get parameters to be appended to the URL.
+ * @param {boolean} [replaceQueryParams=true] Should existing query parameters be carried over, or dropped (replaced)?
+ */
+
+
+var navigate = function navigate(url) {
+  var replace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var queryParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var replaceQueryParams = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+  url = (0, _interceptor.interceptRoute)(currentPath, resolvePath(url));
+
+  if (!url || url === currentPath) {
+    return;
+  }
+
+  currentPath = url;
+
+  if (_isNode.default) {
+    setPath(url);
+    processStack();
+    updatePathHooks();
+    return;
+  }
+
+  var finalURL = basePathRegEx ? url.match(basePathRegEx) ? url : basePath + url : url;
+  window.history["".concat(replace ? 'replace' : 'push', "State")](null, null, finalURL);
+  processStack();
+  updatePathHooks();
+
+  if (queryParams) {
+    (0, _queryParams.setQueryParams)(queryParams, replaceQueryParams);
+  }
+};
+
+exports.navigate = navigate;
+var customPath = '/';
+/**
+ * Enables you to manually set the path from outside in a nodeJS environment, where window.history is not available.
+ * @param {string} inPath
+ */
+
+var setPath = function setPath(inPath) {
+  var url = __webpack_require__(/*! url */ "./node_modules/url/url.js");
+
+  customPath = url.resolve(customPath, inPath);
+};
+/**
+ * Returns the current path of the router.
+ * @returns {string}
+ */
+
+
+exports.setPath = setPath;
+
+var getPath = function getPath() {
+  return customPath;
+};
+/**
+ * This hook returns the currently used URI.
+ * Works in a browser context as well as for SSR.
+ *
+ * _Heads up:_ This will make your component render on every navigation unless you set this hook to passive!
+ * @param {boolean} [active=true] Will update the component upon path changes. Set to false to only retrieve the path, once.
+ * @param {boolean} [withBasepath=false] Should the base path be left at the beginning of the URI?
+ * @returns {string}
+ */
+
+
+exports.getPath = getPath;
+
+var usePath = function usePath() {
+  var active = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  var withBasepath = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+  var _React$useState = _react.default.useState(0),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      setUpdate = _React$useState2[1];
+
+  _react.default.useEffect(function () {
+    if (!active) {
+      return;
+    }
+
+    pathUpdaters.push(setUpdate);
+    return function () {
+      var index = pathUpdaters.indexOf(setUpdate);
+
+      if (index !== -1) {
+        pathUpdaters.splice(index, 1);
+      }
+    };
+  }, [setUpdate]);
+
+  return withBasepath ? currentPath : currentPath.replace(basePathRegEx, '');
+};
+/**
+ * Render all components that use path hooks.
+ */
+
+
+exports.usePath = usePath;
+
+var updatePathHooks = function updatePathHooks() {
+  var now = Date.now();
+  pathUpdaters.forEach(function (cb) {
+    return cb(now);
+  });
+};
+/**
+ * Called from within the router. This returns either the current windows url path
+ * or a already reduced path, if a parent router has already matched with a finishing
+ * wildcard before.
+ * @param {string} [parentRouterId]
+ * @returns {string}
+ */
+
+
+var getWorkingPath = function getWorkingPath(parentRouterId) {
+  if (!parentRouterId) {
+    return _isNode.default ? customPath : window.location.pathname.replace(basePathRegEx, '') || '/';
+  }
+
+  var stackEntry = stack[parentRouterId];
+
+  if (!stackEntry) {
+    throw 'wth';
+  }
+
+  return stackEntry.reducedPath !== null ? stackEntry.reducedPath || '/' : window.location.pathname;
+};
+
+exports.getWorkingPath = getWorkingPath;
+
+var processStack = function processStack() {
+  return Object.values(stack).forEach(process);
+};
+/**
+ * This function takes two objects and compares if they have the same
+ * keys and their keys have the same values assigned, so the objects are
+ * basically the same.
+ * @param {object} objA
+ * @param {object} objB
+ * @return {boolean}
+ */
+
+
+var objectsEqual = function objectsEqual(objA, objB) {
+  var objAKeys = Object.keys(objA);
+  var objBKeys = Object.keys(objB);
+
+  var valueIsEqual = function valueIsEqual(key) {
+    return objB.hasOwnProperty(key) && objA[key] === objB[key];
+  };
+
+  return objAKeys.length === objBKeys.length && objAKeys.every(valueIsEqual);
+};
+
+if (!_isNode.default) {
+  window.addEventListener('popstate', function (e) {
+    var nextPath = (0, _interceptor.interceptRoute)(currentPath, location.pathname);
+
+    if (!nextPath || nextPath === currentPath) {
+      e.preventDefault();
+      e.stopPropagation();
+      history.pushState(null, null, currentPath);
+      return;
+    }
+
+    currentPath = nextPath;
+
+    if (nextPath !== location.pathname) {
+      history.replaceState(null, null, nextPath);
+    }
+
+    processStack();
+    updatePathHooks();
+  });
+}
+
+var emptyFunc = function emptyFunc() {
+  return null;
+};
+/**
+ * This will calculate the match of a given router.
+ * @param {object} stackObj
+ * @param {boolean} [directCall] If its not a direct call, the process function might trigger a component render.
+ */
+
+
+var process = function process(stackObj, directCall) {
+  var routerId = stackObj.routerId,
+      parentRouterId = stackObj.parentRouterId,
+      routes = stackObj.routes,
+      setUpdate = stackObj.setUpdate,
+      resultFunc = stackObj.resultFunc,
+      resultProps = stackObj.resultProps,
+      previousReducedPath = stackObj.reducedPath;
+  var currentPath = getWorkingPath(parentRouterId);
+  var route = null;
+  var targetFunction = null;
+  var targetProps = null;
+  var reducedPath = null;
+  var anyMatched = false;
+
+  for (var i = 0; i < routes.length; i++) {
+    var _routes$i = _slicedToArray(routes[i], 2);
+
+    route = _routes$i[0];
+    targetFunction = _routes$i[1];
+
+    var _ref = preparedRoutes[route] ? preparedRoutes[route] : prepareRoute(route),
+        _ref2 = _slicedToArray(_ref, 2),
+        regex = _ref2[0],
+        groupNames = _ref2[1];
+
+    var _result = currentPath.match(regex);
+
+    if (!_result) {
+      targetFunction = emptyFunc;
+      continue;
+    }
+
+    if (groupNames.length) {
+      targetProps = {};
+
+      for (var j = 0; j < groupNames.length; j++) {
+        targetProps[groupNames[j]] = _result[j + 1];
+      }
+    }
+
+    reducedPath = currentPath.replace(_result[0], '');
+    anyMatched = true;
+    break;
+  }
+
+  if (!stack[routerId]) {
+    return;
+  }
+
+  if (!anyMatched) {
+    route = null;
+    targetFunction = null;
+    targetProps = null;
+    reducedPath = null;
+  }
+
+  var funcsDiffer = resultFunc !== targetFunction;
+  var pathDiffer = reducedPath !== previousReducedPath;
+  var propsDiffer = true;
+
+  if (!funcsDiffer) {
+    if (!resultProps && !targetProps) {
+      propsDiffer = false;
+    } else {
+      propsDiffer = !(resultProps && targetProps && objectsEqual(resultProps, targetProps) === true);
+    }
+
+    if (!propsDiffer) {
+      if (!pathDiffer) {
+        return;
+      }
+    }
+  }
+
+  var result = funcsDiffer || propsDiffer ? targetFunction ? targetFunction(targetProps) : null : stackObj.result;
+  Object.assign(stack[routerId], {
+    result: result,
+    reducedPath: reducedPath,
+    matchedRoute: route,
+    passContext: route ? route.substr(-1) === '*' : false
+  });
+
+  if (!directCall && (funcsDiffer || propsDiffer || route === null)) {
+    setUpdate(Date.now());
+  }
+};
+/**
+ * If a route returns a function, instead of a react element, we need to wrap this function
+ * to eventually wrap a context object around its result.
+ * @param RouteContext
+ * @param originalResult
+ * @returns {function(): *}
+ */
+
+
+var wrapperFunction = function wrapperFunction(RouteContext, originalResult) {
+  return function () {
+    return _react.default.createElement(RouteContext, null, originalResult.apply(originalResult, arguments));
+  };
+};
+/**
+ * Pass an object to this function where the keys are routes and the values
+ * are functions to be executed when a route matches. Whatever your function returns
+ * will be returned from the hook as well into your react component. Ideally you would
+ * return components to be rendered when certain routes match, but you are not limited
+ * to that.
+ * @param {object} routeObj {"/someRoute": () => <Example />}
+ */
+
+
+var useRoutes = function useRoutes(routeObj) {
+  // Each router gets an internal id to look them up again.
+  var _React$useState3 = _react.default.useState(componentId),
+      _React$useState4 = _slicedToArray(_React$useState3, 1),
+      routerId = _React$useState4[0];
+
+  var setUpdate = _react.default.useState(0)[1]; // Needed to create nested routers which use only a subset of the URL.
+
+
+  var parentRouterId = _react.default.useContext(ParentContext); // If we just took the last ID, increase it for the next hook.
+
+
+  if (routerId === componentId) {
+    componentId += 1;
+  } // Removes the router from the stack after component unmount - it won't be processed anymore.
+
+
+  _react.default.useEffect(function () {
+    return function () {
+      return delete stack[routerId];
+    };
+  }, [routerId]);
+
+  var stackObj = stack[routerId];
+
+  if (stackObj && stackObj.originalRouteObj !== routeObj) {
+    stackObj = null;
+  }
+
+  if (!stackObj) {
+    stackObj = {
+      routerId: routerId,
+      originalRouteObj: routeObj,
+      routes: Object.entries(routeObj),
+      setUpdate: setUpdate,
+      parentRouterId: parentRouterId,
+      matchedRoute: null,
+      reducedPath: null,
+      passContext: false,
+      result: null
+    };
+    stack[routerId] = stackObj;
+    process(stackObj, true);
+  }
+
+  _react.default.useDebugValue(stackObj.matchedRoute);
+
+  if (!stackObj.matchedRoute) {
+    return null;
+  }
+
+  var result = stackObj.result;
+
+  if (!stackObj.passContext) {
+    return result;
+  } else {
+    var RouteContext = function RouteContext(_ref3) {
+      var children = _ref3.children;
+      return _react.default.createElement(ParentContext.Provider, {
+        value: routerId
+      }, children);
+    };
+
+    if (typeof result === 'function') {
+      return wrapperFunction(RouteContext, result);
+    }
+
+    return _react.default.isValidElement(result) && result.type !== RouteContext ? _react.default.createElement(RouteContext, null, result) : result;
+  }
+};
+
+exports.useRoutes = useRoutes;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9yb3V0ZXIuanMiXSwibmFtZXMiOlsicHJlcGFyZWRSb3V0ZXMiLCJzdGFjayIsImNvbXBvbmVudElkIiwiY3VycmVudFBhdGgiLCJpc05vZGUiLCJsb2NhdGlvbiIsInBhdGhuYW1lIiwiYmFzZVBhdGgiLCJiYXNlUGF0aFJlZ0V4IiwicGF0aFVwZGF0ZXJzIiwic2V0QmFzZXBhdGgiLCJpbkJhc2VwYXRoIiwiUmVnRXhwIiwiZ2V0QmFzZXBhdGgiLCJyZXNvbHZlUGF0aCIsImluUGF0aCIsInVybCIsInJlcXVpcmUiLCJyZXNvbHZlIiwiY3VycmVudCIsIlVSTCIsImhyZWYiLCJyZXNvbHZlZCIsIlBhcmVudENvbnRleHQiLCJSZWFjdCIsImNyZWF0ZUNvbnRleHQiLCJwcmVwYXJlUm91dGUiLCJpblJvdXRlIiwicHJlcGFyZWRSb3V0ZSIsInN1YnN0ciIsInJlcGxhY2UiLCJwcm9wTGlzdCIsIm1hdGNoIiwicHVzaCIsIm1hcCIsInBhcmFtTmFtZSIsIm5hdmlnYXRlIiwicXVlcnlQYXJhbXMiLCJyZXBsYWNlUXVlcnlQYXJhbXMiLCJzZXRQYXRoIiwicHJvY2Vzc1N0YWNrIiwidXBkYXRlUGF0aEhvb2tzIiwiZmluYWxVUkwiLCJ3aW5kb3ciLCJoaXN0b3J5IiwiY3VzdG9tUGF0aCIsImdldFBhdGgiLCJ1c2VQYXRoIiwiYWN0aXZlIiwid2l0aEJhc2VwYXRoIiwidXNlU3RhdGUiLCJzZXRVcGRhdGUiLCJ1c2VFZmZlY3QiLCJpbmRleCIsImluZGV4T2YiLCJzcGxpY2UiLCJub3ciLCJEYXRlIiwiZm9yRWFjaCIsImNiIiwiZ2V0V29ya2luZ1BhdGgiLCJwYXJlbnRSb3V0ZXJJZCIsInN0YWNrRW50cnkiLCJyZWR1Y2VkUGF0aCIsIk9iamVjdCIsInZhbHVlcyIsInByb2Nlc3MiLCJvYmplY3RzRXF1YWwiLCJvYmpBIiwib2JqQiIsIm9iakFLZXlzIiwia2V5cyIsIm9iakJLZXlzIiwidmFsdWVJc0VxdWFsIiwia2V5IiwiaGFzT3duUHJvcGVydHkiLCJsZW5ndGgiLCJldmVyeSIsImFkZEV2ZW50TGlzdGVuZXIiLCJlIiwibmV4dFBhdGgiLCJwcmV2ZW50RGVmYXVsdCIsInN0b3BQcm9wYWdhdGlvbiIsInB1c2hTdGF0ZSIsInJlcGxhY2VTdGF0ZSIsImVtcHR5RnVuYyIsInN0YWNrT2JqIiwiZGlyZWN0Q2FsbCIsInJvdXRlcklkIiwicm91dGVzIiwicmVzdWx0RnVuYyIsInJlc3VsdFByb3BzIiwicHJldmlvdXNSZWR1Y2VkUGF0aCIsInJvdXRlIiwidGFyZ2V0RnVuY3Rpb24iLCJ0YXJnZXRQcm9wcyIsImFueU1hdGNoZWQiLCJpIiwicmVnZXgiLCJncm91cE5hbWVzIiwicmVzdWx0IiwiaiIsImZ1bmNzRGlmZmVyIiwicGF0aERpZmZlciIsInByb3BzRGlmZmVyIiwiYXNzaWduIiwibWF0Y2hlZFJvdXRlIiwicGFzc0NvbnRleHQiLCJ3cmFwcGVyRnVuY3Rpb24iLCJSb3V0ZUNvbnRleHQiLCJvcmlnaW5hbFJlc3VsdCIsImFwcGx5IiwiYXJndW1lbnRzIiwidXNlUm91dGVzIiwicm91dGVPYmoiLCJ1c2VDb250ZXh0Iiwib3JpZ2luYWxSb3V0ZU9iaiIsImVudHJpZXMiLCJ1c2VEZWJ1Z1ZhbHVlIiwiY2hpbGRyZW4iLCJpc1ZhbGlkRWxlbWVudCIsInR5cGUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTs7QUFDQTs7QUFDQTs7QUFDQTs7Ozs7Ozs7Ozs7O0FBRUEsSUFBSUEsY0FBYyxHQUFHLEVBQXJCO0FBQ0EsSUFBSUMsS0FBSyxHQUFHLEVBQVo7QUFDQSxJQUFJQyxXQUFXLEdBQUcsQ0FBbEI7QUFDQSxJQUFJQyxXQUFXLEdBQUdDLGtCQUFTLEVBQVQsR0FBY0MsUUFBUSxDQUFDQyxRQUF6QztBQUNBLElBQUlDLFFBQVEsR0FBRyxFQUFmO0FBQ0EsSUFBSUMsYUFBYSxHQUFHLElBQXBCO0FBQ0EsSUFBTUMsWUFBWSxHQUFHLEVBQXJCO0FBRUE7Ozs7OztBQUtPLElBQU1DLFdBQVcsR0FBRyxTQUFkQSxXQUFjLENBQUNDLFVB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QUNxQixJQUFQLEtBQWdCWixZQUFoRCxHQUNKLDZCQUFDLFlBQUQsUUFBZVQsTUFBZixDQURJLEdBRUpBLE1BRkg7QUFHQTtBQUNELENBNURNIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcclxuaW1wb3J0IGlzTm9kZSBmcm9tICcuL2lzTm9kZSc7XHJcbmltcG9ydCB7c2V0UXVlcnlQYXJhbXN9IGZyb20gJy4vcXVlcnlQYXJhbXMnO1xyXG5pbXBvcnQge2ludGVyY2VwdFJvdXRlfSBmcm9tICcuL2ludGVyY2VwdG9yJztcclxuXHJcbmxldCBwcmVwYXJlZFJvdXRlcyA9IHt9O1xyXG5sZXQgc3RhY2sgPSB7fTtcclxubGV0IGNvbXBvbmVudElkID0gMTtcclxubGV0IGN1cnJlbnRQYXRoID0gaXNOb2RlID8gJycgOiBsb2NhdGlvbi5wYXRobmFtZTtcclxubGV0IGJhc2VQYXRoID0gJyc7XHJcbmxldCBiYXNlUGF0aFJlZ0V4ID0gbnVsbDtcclxuY29uc3QgcGF0aFVwZGF0ZXJzID0gW107XHJcblxyXG4vKipcclxuICogV2lsbCBkZWZpbmUgYSBiYXNlIHBhdGggdGhhdCB3aWxsIGJlIHV0aWxpemVkIGluIHlvdXIgcm91dGluZyBhbmQgbmF2aWdhdGlvbi5cclxuICogVG8gYmUgY2FsbGVkIF9iZWZvcmVfIGFueSByb3V0aW5nIG9yIG5hdmlnYXRpb24gaGFwcGVucy5cclxuICogQHBhcmFtIHtzdHJpbmd9IGluQmFzZXBhdGhcclxuICovXHJcbmV4cG9ydCBjb25zdCBzZXRCYXNlcGF0aCA9IChpbkJhc2VwYXRoKSA9PiB7XHJcblx0YmFzZVBhdGggPSBpbkJhc2VwYXRoO1xyXG5cdGJhc2VQYXRoUmVnRXggPSBuZXcgUmVnRXhwKCdeJyArIGJhc2VQYXRoKTtcclxufTtcclxuXHJcbi8qKlxyXG4gKiBSZXR1cm5zIHRoZSBjdXJyZW50bHkgdXNlZCBiYXNlIHBhdGguXHJcbiAqIEByZXR1cm5zIHtzdHJpbmd9XHJcbiAqL1xyXG5leHBvcnQgY29uc3QgZ2V0QmFzZXBhdGggPSAoKSA9PiBiYXNlUGF0aDtcclxuXHJcbmNvbnN0IHJlc29sdmVQYXRoID0gKGluUGF0aCkgPT4ge1xyXG5cdGlmIChpc05vZGUpIHtcclxuXHRcdGNvbnN0IHVybCA9IHJlcXVpcmUoJ3VybCcpO1xyXG5cdFx0cmV0dXJuIHVybC5yZXNvbHZlKGN1cnJlbnRQYXRoLCBpblBhdGgpO1xyXG5cdH1cclxuXHJcblx0Y29uc3QgY3VycmVudCA9IG5ldyBVUkwoY3VycmVudFBhdGgsIGxvY2F0aW9uLmhyZWYpO1xyXG5cdGNvbnN0IHJlc29sdmVkID0gbmV3IFVSTChpblBhdGgsIGN1cnJlbnQpO1xyXG5cdHJldHVybiByZXNvbHZlZC5wYXRobmFtZTtcclxufTtcclxuXHJcbmV4cG9ydCBjb25zdCBQYXJlbnRDb250ZXh0ID0gUmVhY3QuY3JlYXRlQ29udGV4dChudWxsKTtcclxuXHJcbi8qKlxyXG4gKiBQYXNzIGEgcm91dGUgc3RyaW5nIHRvIHRoaXMgZnVuY3Rpb24gdG8gcmVjZWl2ZSBhIHJlZ3VsYXIgZXhwcmVzc2lvbi5cclxuICogVGhlIHRyYW5zZm9ybWF0aW9uIHdpbGwgYmUgY2FjaGVkIGFuZCBpZiB5b3UgcGFzcyB0aGUgc2FtZSByb3V0ZSBhIHNlY29uZFxyXG4gKiB0aW1lLCB0aGUgY2FjaGVkIHJlZ2V4IHdpbGwgYmUgcmV0dXJuZWQuXHJcbiAqIEBwYXJhbSB7c3RyaW5nfSBpblJvdXRlXHJcbiAqIEByZXR1cm5zIHtBcnJheX0gW1JlZ0V4cCwgcHJvcExpc3RdXHJcbiAqL1xyXG5jb25zdCBwcmVwYXJlUm91dGUgPSAoaW5Sb3V0ZSkgPT4ge1xyXG5cdGlmIChwcmVwYXJlZFJvdXRlc1tpblJvdXRlXSkge1xyXG5cdFx0cmV0dXJuIHByZXBhcmVkUm91dGVzW2luUm91dGVdO1xyXG5cdH1cclxuXHJcblx0Y29uc3QgcHJlcGFyZWRSb3V0ZSA9IFtcclxuXHRcdG5ldyBSZWdFeHAoYCR7aW5Sb3V0ZS5zdWJzdHIoMCwgMSkgPT09ICcqJyA/ICcnIDogJ14nfSR7aW5Sb3V0ZS5yZXBsYWNlKC86W2EtekEtWl0rL2csICcoW14vXSspJykucmVwbGFjZSgvXFwqL2csICcnKX0ke2luUm91dGUuc3Vic3RyKC0xLCkgPT09ICcqJyA/ICcnIDogJyQnfWApXHJcblx0XTtcclxuXHJcblx0Y29uc3QgcHJvcExpc3QgPSBpblJvdXRlLm1hdGNoKC86W2EtekEtWl0rL2cpO1xyXG5cdHByZXBhcmVkUm91dGUucHVzaChcclxuXHRcdHByb3BMaXN0XHJcblx0XHRcdD8gcHJvcExpc3QubWFwKHBhcmFtTmFtZSA9PiBwYXJhbU5hbWUuc3Vic3RyKDEpKVxyXG5cdFx0XHQ6IFtdXHJcblx0KTtcclxuXHJcblx0cHJlcGFyZWRSb3V0ZXNbaW5Sb3V0ZV0gPSBwcmVwYXJlZFJvdXRlO1xyXG5cdHJldHVybiBwcmVwYXJlZFJvdXRlO1xyXG59O1xyXG5cclxuLyoqXHJcbiAqIFZpcnR1YWxseSBuYXZpZ2F0ZXMgdGhlIGJyb3dzZXIgdG8gdGhlIGdpdmVuIFVSTCBhbmQgcmUtcHJvY2Vzc2VzIGFsbCByb3V0ZXJzLlxyXG4gKiBAcGFyYW0ge3N0cmluZ30gdXJsIFRoZSBVUkwgdG8gbmF2aWdhdGUgdG8uIERvIG5vdCBtaXggYWRkaW5nIEdFVCBwYXJhbXMgaGVyZSBhbmQgdXNpbmcgdGhlIGBnZXRQYXJhbXNgIGFyZ3VtZW50LlxyXG4gKiBAcGFyYW0ge2Jvb2xlYW59IFtyZXBsYWNlPWZhbHNlXSBTaG91bGQgdGhlIG5hdmlnYXRpb24gYmUgZG9uZSB3aXRoIGEgaGlzdG9yeSByZXBsYWNlIHRvIHByZXZlbnQgYmFjayBuYXZpZ2F0aW9uIGJ5IHRoZSB1c2VyXHJcbiAqIEBwYXJhbSB7b2JqZWN0fSBbcXVlcnlQYXJhbXNdIEtleS9WYWx1ZSBwYWlycyB0byBjb252ZXJ0IGludG8gZ2V0IHBhcmFtZXRlcnMgdG8gYmUgYXBwZW5kZWQgdG8gdGhlIFVSTC5cclxuICogQHBhcmFtIHtib29sZWFufSBbcmVwbGFjZVF1ZXJ5UGFyYW1zPXRydWVdIFNob3VsZCBleGlzdGluZyBxdWVyeSBwYXJhbWV0ZXJzIGJlIGNhcnJpZWQgb3Zlciwgb3IgZHJvcHBlZCAocmVwbGFjZWQpP1xyXG4gKi9cclxuZXhwb3J0IGNvbnN0IG5hdmlnYXRlID0gKHVybCwgcmVwbGFjZSA9IGZhbHNlLCBxdWVyeVBhcmFtcyA9IG51bGwsIHJlcGxhY2VRdWVyeVBhcmFtcyA9IHRydWUpID0+IHtcclxuXHR1cmwgPSBpbnRlcmNlcHRSb3V0ZShjdXJyZW50UGF0aCwgcmVzb2x2ZVBhdGgodXJsKSk7XHJcblxyXG5cdGlmICghdXJsIHx8IHVybCA9PT0gY3VycmVudFBhdGgpIHtcclxuXHRcdHJldHVybjtcclxuXHR9XHJcblxyXG5cdGN1cnJlbnRQYXRoID0gdXJsO1xyXG5cclxuXHRpZiAoaXNOb2RlKSB7XHJcblx0XHRzZXRQYXRoKHVybCk7XHJcblx0XHRwcm9jZXNzU3RhY2soKTtcclxuXHRcdHVwZGF0ZVBhdGhIb29rcygpO1xyXG5cdFx0cmV0dXJuO1xyXG5cdH1cclxuXHJcblx0Y29uc3QgZmluYWxVUkwgPSBiYXNlUGF0aFJlZ0V4XHJcblx0XHQ/IHVybC5tYXRjaChiYXNlUGF0aFJlZ0V4KVxyXG5cdFx0XHQ/IHVybFxyXG5cdFx0XHQ6IGJhc2VQYXRoICsgdXJsXHJcblx0XHQ6XHJcblx0XHR1cmw7XHJcblxyXG5cdHdpbmRvdy5oaXN0b3J5W2Ake3JlcGxhY2UgPyAncmVwbGFjZScgOiAncHVzaCd9U3RhdGVgXShudWxsLCBudWxsLCBmaW5hbFVSTCk7XHJcblx0cHJvY2Vzc1N0YWNrKCk7XHJcblx0dXBkYXRlUGF0aEhvb2tzKCk7XHJcblxyXG5cdGlmIChxdWVyeVBhcmFtcykge1xyXG5cdFx0c2V0UXVlcnlQYXJhbXMocXVlcnlQYXJhbXMsIHJlcGxhY2VRdWVyeVBhcmFtcyk7XHJcblx0fVxyXG59O1xyXG5cclxubGV0IGN1c3RvbVBhdGggPSAnLyc7XHJcbi8qKlxyXG4gKiBFbmFibGVzIHlvdSB0byBtYW51YWxseSBzZXQgdGhlIHBhdGggZnJvbSBvdXRzaWRlIGluIGEgbm9kZUpTIGVudmlyb25tZW50LCB3aGVyZSB3aW5kb3cuaGlzdG9yeSBpcyBub3QgYXZhaWxhYmxlLlxyXG4gKiBAcGFyYW0ge3N0cmluZ30gaW5QYXRoXHJcbiAqL1xyXG5leHBvcnQgY29uc3Qgc2V0UGF0aCA9IChpblBhdGgpID0+IHtcclxuXHRjb25zdCB1cmwgPSByZXF1aXJlKCd1cmwnKTtcclxuXHRjdXN0b21QYXRoID0gdXJsLnJlc29sdmUoY3VzdG9tUGF0aCwgaW5QYXRoKTtcclxufTtcclxuXHJcbi8qKlxyXG4gKiBSZXR1cm5zIHRoZSBjdXJyZW50IHBhdGggb2YgdGhlIHJvdXRlci5cclxuICogQHJldHVybnMge3N0cmluZ31cclxuICovXHJcbmV4cG9ydCBjb25zdCBnZXRQYXRoID0gKCkgPT4gY3VzdG9tUGF0aDtcclxuXHJcbi8qKlxyXG4gKiBUaGlzIGhvb2sgcmV0dXJucyB0aGUgY3VycmVudGx5IHVzZWQgVVJJLlxyXG4gKiBXb3JrcyBpbiBhIGJyb3dzZXIgY29udGV4dCBhcyB3ZWxsIGFzIGZvciBTU1IuXHJcbiAqXHJcbiAqIF9IZWFkcyB1cDpfIFRoaXMgd2lsbCBtYWtlIHlvdXIgY29tcG9uZW50IHJlbmRlciBvbiBldmVyeSBuYXZpZ2F0aW9uIHVubGVzcyB5b3Ugc2V0IHRoaXMgaG9vayB0byBwYXNzaXZlIVxyXG4gKiBAcGFyYW0ge2Jvb2xlYW59IFthY3RpdmU9dHJ1ZV0gV2lsbCB1cGRhdGUgdGhlIGNvbXBvbmVudCB1cG9uIHBhdGggY2hhbmdlcy4gU2V0IHRvIGZhbHNlIHRvIG9ubHkgcmV0cmlldmUgdGhlIHBhdGgsIG9uY2UuXHJcbiAqIEBwYXJhbSB7Ym9vbGVhbn0gW3dpdGhCYXNlcGF0aD1mYWxzZV0gU2hvdWxkIHRoZSBiYXNlIHBhdGggYmUgbGVmdCBhdCB0aGUgYmVnaW5uaW5nIG9mIHRoZSBVUkk/XHJcbiAqIEByZXR1cm5zIHtzdHJpbmd9XHJcbiAqL1xyXG5leHBvcnQgY29uc3QgdXNlUGF0aCA9IChhY3RpdmUgPSB0cnVlLCB3aXRoQmFzZXBhdGggPSBmYWxzZSkgPT4ge1xyXG5cdGNvbnN0IFssIHNldFVwZGF0ZV0gPSBSZWFjdC51c2VTdGF0ZSgwKTtcclxuXHJcblx0UmVhY3QudXNlRWZmZWN0KCgpID0+IHtcclxuXHRcdGlmICghYWN0aXZlKSB7XHJcblx0XHRcdHJldHVybjtcclxuXHRcdH1cclxuXHJcblx0XHRwYXRoVXBkYXRlcnMucHVzaChzZXRVcGRhdGUpO1xyXG5cdFx0cmV0dXJuICgpID0+IHtcclxuXHRcdFx0Y29uc3QgaW5kZXggPSBwYXRoVXBkYXRlcnMuaW5kZXhPZihzZXRVcGRhdGUpO1xyXG5cdFx0XHRpZiAoaW5kZXggIT09IC0xKSB7XHJcblx0XHRcdFx0cGF0aFVwZGF0ZXJzLnNwbGljZShpbmRleCwgMSk7XHJcblx0XHRcdH1cclxuXHRcdH07XHJcblx0fSwgW3NldFVwZGF0ZV0pO1xyXG5cclxuXHRyZXR1cm4gd2l0aEJhc2VwYXRoID8gY3VycmVudFBhdGggOiBjdXJyZW50UGF0aC5yZXBsYWNlKGJhc2VQYXRoUmVnRXgsICcnKTtcclxufTtcclxuXHJcbi8qKlxyXG4gKiBSZW5kZXIgYWxsIGNvbXBvbmVudHMgdGhhdCB1c2UgcGF0aCBob29rcy5cclxuICovXHJcbmNvbnN0IHVwZGF0ZVBhdGhIb29rcyA9ICgpID0+IHtcclxuXHRjb25zdCBub3cgPSBEYXRlLm5vdygpO1xyXG5cdHBhdGhVcGRhdGVycy5mb3JFYWNoKGNiID0+IGNiKG5vdykpO1xyXG59O1xyXG5cclxuLyoqXHJcbiAqIENhbGxlZCBmcm9tIHdpdGhpbiB0aGUgcm91dGVyLiBUaGlzIHJldHVybnMgZWl0aGVyIHRoZSBjdXJyZW50IHdpbmRvd3MgdXJsIHBhdGhcclxuICogb3IgYSBhbHJlYWR5IHJlZHVjZWQgcGF0aCwgaWYgYSBwYXJlbnQgcm91dGVyIGhhcyBhbHJlYWR5IG1hdGNoZWQgd2l0aCBhIGZpbmlzaGluZ1xyXG4gKiB3aWxkY2FyZCBiZWZvcmUuXHJcbiAqIEBwYXJhbSB7c3RyaW5nfSBbcGFyZW50Um91dGVySWRdXHJcbiAqIEByZXR1cm5zIHtzdHJpbmd9XHJcbiAqL1xyXG5leHBvcnQgY29uc3QgZ2V0V29ya2luZ1BhdGggPSAocGFyZW50Um91dGVySWQpID0+IHtcclxuXHRpZiAoIXBhcmVudFJvdXRlcklkKSB7XHJcblx0XHRyZXR1cm4gaXNOb2RlID8gY3VzdG9tUGF0aCA6IHdpbmRvdy5sb2NhdGlvbi5wYXRobmFtZS5yZXBsYWNlKGJhc2VQYXRoUmVnRXgsICcnKSB8fCAnLyc7XHJcblx0fVxyXG5cdGNvbnN0IHN0YWNrRW50cnkgPSBzdGFja1twYXJlbnRSb3V0ZXJJZF07XHJcblx0aWYgKCFzdGFja0VudHJ5KSB7XHJcblx0XHR0aHJvdyAnd3RoJztcclxuXHR9XHJcblxyXG5cdHJldHVybiBzdGFja0VudHJ5LnJlZHVjZWRQYXRoICE9PSBudWxsID8gc3RhY2tFbnRyeS5yZWR1Y2VkUGF0aCB8fCAnLycgOiB3aW5kb3cubG9jYXRpb24ucGF0aG5hbWU7XHJcbn07XHJcblxyXG5jb25zdCBwcm9jZXNzU3RhY2sgPSAoKSA9PiBPYmplY3QudmFsdWVzKHN0YWNrKS5mb3JFYWNoKHByb2Nlc3MpO1xyXG5cclxuLyoqXHJcbiAqIFRoaXMgZnVuY3Rpb24gdGFrZXMgdHdvIG9iamVjdHMgYW5kIGNvbXBhcmVzIGlmIHRoZXkgaGF2ZSB0aGUgc2FtZVxyXG4gKiBrZXlzIGFuZCB0aGVpciBrZXlzIGhhdmUgdGhlIHNhbWUgdmFsdWVzIGFzc2lnbmVkLCBzbyB0aGUgb2JqZWN0cyBhcmVcclxuICogYmFzaWNhbGx5IHRoZSBzYW1lLlxyXG4gKiBAcGFyYW0ge29iamVjdH0gb2JqQVxyXG4gKiBAcGFyYW0ge29iamVjdH0gb2JqQlxyXG4gKiBAcmV0dXJuIHtib29sZWFufVxyXG4gKi9cclxuY29uc3Qgb2JqZWN0c0VxdWFsID0gKG9iakEsIG9iakIpID0+IHtcclxuXHRjb25zdCBvYmpBS2V5cyA9IE9iamVjdC5rZXlzKG9iakEpO1xyXG5cdGNvbnN0IG9iakJLZXlzID0gT2JqZWN0LmtleXMob2JqQik7XHJcblxyXG5cdGNvbnN0IHZhbHVlSXNFcXVhbCA9IGtleSA9PiBvYmpCLmhhc093blByb3BlcnR5KGtleSkgJiYgb2JqQVtrZXldID09PSBvYmpCW2tleV07XHJcblxyXG5cdHJldHVybiAoXHJcblx0XHRvYmpBS2V5cy5sZW5ndGggPT09IG9iakJLZXlzLmxlbmd0aFxyXG5cdFx0JiYgb2JqQUtleXMuZXZlcnkodmFsdWVJc0VxdWFsKVxyXG5cdCk7XHJcbn07XHJcblxyXG5pZiAoIWlzTm9kZSkge1xyXG5cdHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCdwb3BzdGF0ZScsIChlKSA9PiB7XHJcblx0XHRjb25zdCBuZXh0UGF0aCA9IGludGVyY2VwdFJvdXRlKGN1cnJlbnRQYXRoLCBsb2NhdGlvbi5wYXRobmFtZSk7XHJcblxyXG5cdFx0aWYgKCFuZXh0UGF0aCB8fCBuZXh0UGF0aCA9PT0gY3VycmVudFBhdGgpIHtcclxuXHRcdFx0ZS5wcmV2ZW50RGVmYXVsdCgpO1xyXG5cdFx0XHRlLnN0b3BQcm9wYWdhdGlvbigpO1xyXG5cdFx0XHRoaXN0b3J5LnB1c2hTdGF0ZShudWxsLCBudWxsLCBjdXJyZW50UGF0aCk7XHJcblx0XHRcdHJldHVybjtcclxuXHRcdH1cclxuXHJcblx0XHRjdXJyZW50UGF0aCA9IG5leHRQYXRoO1xyXG5cclxuXHRcdGlmIChuZXh0UGF0aCAhPT0gbG9jYXRpb24ucGF0aG5hbWUpIHtcclxuXHRcdFx0aGlzdG9yeS5yZXBsYWNlU3RhdGUobnVsbCwgbnVsbCwgbmV4dFBhdGgpO1xyXG5cdFx0fVxyXG5cdFx0cHJvY2Vzc1N0YWNrKCk7XHJcblx0XHR1cGRhdGVQYXRoSG9va3MoKTtcclxuXHR9KTtcclxufVxyXG5cclxuY29uc3QgZW1wdHlGdW5jID0gKCkgPT4gbnVsbDtcclxuXHJcbi8qKlxyXG4gKiBUaGlzIHdpbGwgY2FsY3VsYXRlIHRoZSBtYXRjaCBvZiBhIGdpdmVuIHJvdXRlci5cclxuICogQHBhcmFtIHtvYmplY3R9IHN0YWNrT2JqXHJcbiAqIEBwYXJhbSB7Ym9vbGVhbn0gW2RpcmVjdENhbGxdIElmIGl0cyBub3QgYSBkaXJlY3QgY2FsbCwgdGhlIHByb2Nlc3MgZnVuY3Rpb24gbWlnaHQgdHJpZ2dlciBhIGNvbXBvbmVudCByZW5kZXIuXHJcbiAqL1xyXG5jb25zdCBwcm9jZXNzID0gKHN0YWNrT2JqLCBkaXJlY3RDYWxsKSA9PiB7XHJcblx0Y29uc3Qge1xyXG5cdFx0cm91dGVySWQsXHJcblx0XHRwYXJlbnRSb3V0ZXJJZCxcclxuXHRcdHJvdXRlcyxcclxuXHRcdHNldFVwZGF0ZSxcclxuXHRcdHJlc3VsdEZ1bmMsXHJcblx0XHRyZXN1bHRQcm9wcyxcclxuXHRcdHJlZHVjZWRQYXRoOiBwcmV2aW91c1JlZHVjZWRQYXRoXHJcblx0fSA9IHN0YWNrT2JqO1xyXG5cclxuXHRjb25zdCBjdXJyZW50UGF0aCA9IGdldFdvcmtpbmdQYXRoKHBhcmVudFJvdXRlcklkKTtcclxuXHRsZXQgcm91dGUgPSBudWxsO1xyXG5cdGxldCB0YXJnZXRGdW5jdGlvbiA9IG51bGw7XHJcblx0bGV0IHRhcmdldFByb3BzID0gbnVsbDtcclxuXHRsZXQgcmVkdWNlZFBhdGggPSBudWxsO1xyXG5cdGxldCBhbnlNYXRjaGVkID0gZmFsc2U7XHJcblxyXG5cdGZvciAobGV0IGkgPSAwOyBpIDwgcm91dGVzLmxlbmd0aDsgaSsrKSB7XHJcblx0XHRbcm91dGUsIHRhcmdldEZ1bmN0aW9uXSA9IHJvdXRlc1tpXTtcclxuXHRcdGNvbnN0IFtyZWdleCwgZ3JvdXBOYW1lc10gPSBwcmVwYXJlZFJvdXRlc1tyb3V0ZV1cclxuXHRcdFx0PyBwcmVwYXJlZFJvdXRlc1tyb3V0ZV1cclxuXHRcdFx0OiBwcmVwYXJlUm91dGUocm91dGUpO1xyXG5cclxuXHRcdGNvbnN0IHJlc3VsdCA9IGN1cnJlbnRQYXRoLm1hdGNoKHJlZ2V4KTtcclxuXHRcdGlmICghcmVzdWx0KSB7XHJcblx0XHRcdHRhcmdldEZ1bmN0aW9uID0gZW1wdHlGdW5jO1xyXG5cdFx0XHRjb250aW51ZTtcclxuXHRcdH1cclxuXHJcblx0XHRpZiAoZ3JvdXBOYW1lcy5sZW5ndGgpIHtcclxuXHRcdFx0dGFyZ2V0UHJvcHMgPSB7fTtcclxuXHRcdFx0Zm9yIChsZXQgaiA9IDA7IGogPCBncm91cE5hbWVzLmxlbmd0aDsgaisrKSB7XHJcblx0XHRcdFx0dGFyZ2V0UHJvcHNbZ3JvdXBOYW1lc1tqXV0gPSByZXN1bHRbaiArIDFdO1xyXG5cdFx0XHR9XHJcblx0XHR9XHJcblxyXG5cdFx0cmVkdWNlZFBhdGggPSBjdXJyZW50UGF0aC5yZXBsYWNlKHJlc3VsdFswXSwgJycpO1xyXG5cdFx0YW55TWF0Y2hlZCA9IHRydWU7XHJcblx0XHRicmVhaztcclxuXHR9XHJcblxyXG5cdGlmICghc3RhY2tbcm91dGVySWRdKSB7XHJcblx0XHRyZXR1cm47XHJcblx0fVxyXG5cclxuXHRpZiAoIWFueU1hdGNoZWQpIHtcclxuXHRcdHJvdXRlID0gbnVsbDtcclxuXHRcdHRhcmdldEZ1bmN0aW9uID0gbnVsbDtcclxuXHRcdHRhcmdldFByb3BzID0gbnVsbDtcclxuXHRcdHJlZHVjZWRQYXRoID0gbnVsbDtcclxuXHR9XHJcblxyXG5cdGNvbnN0IGZ1bmNzRGlmZmVyID0gcmVzdWx0RnVuYyAhPT0gdGFyZ2V0RnVuY3Rpb247XHJcblx0Y29uc3QgcGF0aERpZmZlciA9IHJlZHVjZWRQYXRoICE9PSBwcmV2aW91c1JlZHVjZWRQYXRoO1xyXG5cdGxldCBwcm9wc0RpZmZlciA9IHRydWU7XHJcblxyXG5cdGlmICghZnVuY3NEaWZmZXIpIHtcclxuXHRcdGlmICghcmVzdWx0UHJvcHMgJiYgIXRhcmdldFByb3BzKSB7XHJcblx0XHRcdHByb3BzRGlmZmVyID0gZmFsc2U7XHJcblx0XHR9IGVsc2Uge1xyXG5cdFx0XHRwcm9wc0RpZmZlciA9ICEocmVzdWx0UHJvcHMgJiYgdGFyZ2V0UHJvcHMgJiYgb2JqZWN0c0VxdWFsKHJlc3VsdFByb3BzLCB0YXJnZXRQcm9wcykgPT09IHRydWUpO1xyXG5cdFx0fVxyXG5cclxuXHRcdGlmICghcHJvcHNEaWZmZXIpIHtcclxuXHRcdFx0aWYgKCFwYXRoRGlmZmVyKSB7XHJcblx0XHRcdFx0cmV0dXJuO1xyXG5cdFx0XHR9XHJcblx0XHR9XHJcblx0fVxyXG5cclxuXHRjb25zdCByZXN1bHQgPSBmdW5jc0RpZmZlciB8fCBwcm9wc0RpZmZlclxyXG5cdFx0PyB0YXJnZXRGdW5jdGlvblxyXG5cdFx0XHQ/IHRhcmdldEZ1bmN0aW9uKHRhcmdldFByb3BzKVxyXG5cdFx0XHQ6IG51bGxcclxuXHRcdDogc3RhY2tPYmoucmVzdWx0O1xyXG5cclxuXHRPYmplY3QuYXNzaWduKHN0YWNrW3JvdXRlcklkXSwge1xyXG5cdFx0cmVzdWx0LFxyXG5cdFx0cmVkdWNlZFBhdGgsXHJcblx0XHRtYXRjaGVkUm91dGU6IHJvdXRlLFxyXG5cdFx0cGFzc0NvbnRleHQ6IHJvdXRlID8gcm91dGUuc3Vic3RyKC0xKSA9PT0gJyonIDogZmFsc2VcclxuXHR9KTtcclxuXHJcblx0aWYgKCFkaXJlY3RDYWxsICYmIChmdW5jc0RpZmZlciB8fCBwcm9wc0RpZmZlciB8fCByb3V0ZSA9PT0gbnVsbCkpIHtcclxuXHRcdHNldFVwZGF0ZShEYXRlLm5vdygpKTtcclxuXHR9XHJcbn07XHJcblxyXG4vKipcclxuICogSWYgYSByb3V0ZSByZXR1cm5zIGEgZnVuY3Rpb24sIGluc3RlYWQgb2YgYSByZWFjdCBlbGVtZW50LCB3ZSBuZWVkIHRvIHdyYXAgdGhpcyBmdW5jdGlvblxyXG4gKiB0byBldmVudHVhbGx5IHdyYXAgYSBjb250ZXh0IG9iamVjdCBhcm91bmQgaXRzIHJlc3VsdC5cclxuICogQHBhcmFtIFJvdXRlQ29udGV4dFxyXG4gKiBAcGFyYW0gb3JpZ2luYWxSZXN1bHRcclxuICogQHJldHVybnMge2Z1bmN0aW9uKCk6ICp9XHJcbiAqL1xyXG5jb25zdCB3cmFwcGVyRnVuY3Rpb24gPSAoUm91dGVDb250ZXh0LCBvcmlnaW5hbFJlc3VsdCkgPT4gZnVuY3Rpb24gKCl7XHJcblx0cmV0dXJuIChcclxuXHRcdDxSb3V0ZUNvbnRleHQ+e29yaWdpbmFsUmVzdWx0LmFwcGx5KG9yaWdpbmFsUmVzdWx0LCBhcmd1bWVudHMpfTwvUm91dGVDb250ZXh0PlxyXG5cdCk7XHJcbn07XHJcblxyXG4vKipcclxuICogUGFzcyBhbiBvYmplY3QgdG8gdGhpcyBmdW5jdGlvbiB3aGVyZSB0aGUga2V5cyBhcmUgcm91dGVzIGFuZCB0aGUgdmFsdWVzXHJcbiAqIGFyZSBmdW5jdGlvbnMgdG8gYmUgZXhlY3V0ZWQgd2hlbiBhIHJvdXRlIG1hdGNoZXMuIFdoYXRldmVyIHlvdXIgZnVuY3Rpb24gcmV0dXJuc1xyXG4gKiB3aWxsIGJlIHJldHVybmVkIGZyb20gdGhlIGhvb2sgYXMgd2VsbCBpbnRvIHlvdXIgcmVhY3QgY29tcG9uZW50LiBJZGVhbGx5IHlvdSB3b3VsZFxyXG4gKiByZXR1cm4gY29tcG9uZW50cyB0byBiZSByZW5kZXJlZCB3aGVuIGNlcnRhaW4gcm91dGVzIG1hdGNoLCBidXQgeW91IGFyZSBub3QgbGltaXRlZFxyXG4gKiB0byB0aGF0LlxyXG4gKiBAcGFyYW0ge29iamVjdH0gcm91dGVPYmoge1wiL3NvbWVSb3V0ZVwiOiAoKSA9PiA8RXhhbXBsZSAvPn1cclxuICovXHJcbmV4cG9ydCBjb25zdCB1c2VSb3V0ZXMgPSAocm91dGVPYmopID0+IHtcclxuXHQvLyBFYWNoIHJvdXRlciBnZXRzIGFuIGludGVybmFsIGlkIHRvIGxvb2sgdGhlbSB1cCBhZ2Fpbi5cclxuXHRjb25zdCBbcm91dGVySWRdID0gUmVhY3QudXNlU3RhdGUoY29tcG9uZW50SWQpO1xyXG5cdGNvbnN0IHNldFVwZGF0ZSA9IFJlYWN0LnVzZVN0YXRlKDApWzFdO1xyXG5cdC8vIE5lZWRlZCB0byBjcmVhdGUgbmVzdGVkIHJvdXRlcnMgd2hpY2ggdXNlIG9ubHkgYSBzdWJzZXQgb2YgdGhlIFVSTC5cclxuXHRjb25zdCBwYXJlbnRSb3V0ZXJJZCA9IFJlYWN0LnVzZUNvbnRleHQoUGFyZW50Q29udGV4dCk7XHJcblxyXG5cdC8vIElmIHdlIGp1c3QgdG9vayB0aGUgbGFzdCBJRCwgaW5jcmVhc2UgaXQgZm9yIHRoZSBuZXh0IGhvb2suXHJcblx0aWYgKHJvdXRlcklkID09PSBjb21wb25lbnRJZCkge1xyXG5cdFx0Y29tcG9uZW50SWQgKz0gMTtcclxuXHR9XHJcblxyXG5cdC8vIFJlbW92ZXMgdGhlIHJvdXRlciBmcm9tIHRoZSBzdGFjayBhZnRlciBjb21wb25lbnQgdW5tb3VudCAtIGl0IHdvbid0IGJlIHByb2Nlc3NlZCBhbnltb3JlLlxyXG5cdFJlYWN0LnVzZUVmZmVjdCgoKSA9PiAoKSA9PiBkZWxldGUgc3RhY2tbcm91dGVySWRdLCBbcm91dGVySWRdKTtcclxuXHJcblx0bGV0IHN0YWNrT2JqID0gc3RhY2tbcm91dGVySWRdO1xyXG5cclxuXHRpZiAoc3RhY2tPYmogJiYgc3RhY2tPYmoub3JpZ2luYWxSb3V0ZU9iaiAhPT0gcm91dGVPYmopIHtcclxuXHRcdHN0YWNrT2JqID0gbnVsbDtcclxuXHR9XHJcblxyXG5cdGlmICghc3RhY2tPYmopIHtcclxuXHRcdHN0YWNrT2JqID0ge1xyXG5cdFx0XHRyb3V0ZXJJZCxcclxuXHRcdFx0b3JpZ2luYWxSb3V0ZU9iajogcm91dGVPYmosXHJcblx0XHRcdHJvdXRlczogT2JqZWN0LmVudHJpZXMocm91dGVPYmopLFxyXG5cdFx0XHRzZXRVcGRhdGUsXHJcblx0XHRcdHBhcmVudFJvdXRlcklkLFxyXG5cdFx0XHRtYXRjaGVkUm91dGU6IG51bGwsXHJcblx0XHRcdHJlZHVjZWRQYXRoOiBudWxsLFxyXG5cdFx0XHRwYXNzQ29udGV4dDogZmFsc2UsXHJcblx0XHRcdHJlc3VsdDogbnVsbFxyXG5cdFx0fTtcclxuXHJcblx0XHRzdGFja1tyb3V0ZXJJZF0gPSBzdGFja09iajtcclxuXHJcblx0XHRwcm9jZXNzKHN0YWNrT2JqLCB0cnVlKTtcclxuXHR9XHJcblxyXG5cdFJlYWN0LnVzZURlYnVnVmFsdWUoc3RhY2tPYmoubWF0Y2hlZFJvdXRlKTtcclxuXHJcblx0aWYgKCFzdGFja09iai5tYXRjaGVkUm91dGUpIHtcclxuXHRcdHJldHVybiBudWxsO1xyXG5cdH1cclxuXHJcblx0bGV0IHJlc3VsdCA9IHN0YWNrT2JqLnJlc3VsdDtcclxuXHJcblx0aWYgKCFzdGFja09iai5wYXNzQ29udGV4dCkge1xyXG5cdFx0cmV0dXJuIHJlc3VsdDtcclxuXHR9IGVsc2Uge1xyXG5cdFx0Y29uc3QgUm91dGVDb250ZXh0ID0gKHtjaGlsZHJlbn0pID0+IDxQYXJlbnRDb250ZXh0LlByb3ZpZGVyIHZhbHVlPXtyb3V0ZXJJZH0+e2NoaWxkcmVufTwvUGFyZW50Q29udGV4dC5Qcm92aWRlcj47XHJcblxyXG5cdFx0aWYgKHR5cGVvZiByZXN1bHQgPT09ICdmdW5jdGlvbicpIHtcclxuXHRcdFx0cmV0dXJuIHdyYXBwZXJGdW5jdGlvbihSb3V0ZUNvbnRleHQsIHJlc3VsdCk7XHJcblx0XHR9XHJcblxyXG5cdFx0cmV0dXJuIFJlYWN0LmlzVmFsaWRFbGVtZW50KHJlc3VsdCkgJiYgcmVzdWx0LnR5cGUgIT09IFJvdXRlQ29udGV4dFxyXG5cdFx0XHQ/IDxSb3V0ZUNvbnRleHQ+e3Jlc3VsdH08L1JvdXRlQ29udGV4dD5cclxuXHRcdFx0OiByZXN1bHQ7XHJcblx0fVxyXG59O1xyXG4iXX0=
+
+/***/ }),
+
+/***/ "./node_modules/hookrouter/dist/title.js":
+/*!***********************************************!*\
+  !*** ./node_modules/hookrouter/dist/title.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getTitle = exports.useTitle = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _isNode = _interopRequireDefault(__webpack_require__(/*! ./isNode */ "./node_modules/hookrouter/dist/isNode.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var currentTitle = '';
+/**
+ * This hook will set the window title, when a component gets mounted.
+ * When the component gets unmounted, the previously used title will be restored.
+ * @param {string} inString
+ */
+
+var useTitle = function useTitle(inString) {
+  currentTitle = inString;
+
+  if (_isNode.default) {
+    return;
+  }
+
+  _react.default.useEffect(function () {
+    var previousTitle = document.title;
+    document.title = inString;
+    return function () {
+      document.title = previousTitle;
+    };
+  });
+};
+/**
+ * Returns the current window title to be used in a SSR context
+ * @returns {string}
+ */
+
+
+exports.useTitle = useTitle;
+
+var getTitle = function getTitle() {
+  return currentTitle;
+};
+
+exports.getTitle = getTitle;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy90aXRsZS5qcyJdLCJuYW1lcyI6WyJjdXJyZW50VGl0bGUiLCJ1c2VUaXRsZSIsImluU3RyaW5nIiwiaXNOb2RlIiwiUmVhY3QiLCJ1c2VFZmZlY3QiLCJwcmV2aW91c1RpdGxlIiwiZG9jdW1lbnQiLCJ0aXRsZSIsImdldFRpdGxlIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7O0FBQ0E7Ozs7QUFFQSxJQUFJQSxZQUFZLEdBQUcsRUFBbkI7QUFFQTs7Ozs7O0FBS08sSUFBTUMsUUFBUSxHQUFHLFNBQVhBLFFBQVcsQ0FBQ0MsUUFBRCxFQUFjO0FBQ3JDRixFQUFBQSxZQUFZLEdBQUdFLFFBQWY7O0FBRUEsTUFBR0MsZUFBSCxFQUFVO0FBQ1Q7QUFDQTs7QUFFREMsaUJBQU1DLFNBQU4sQ0FBZ0IsWUFBTTtBQUNyQixRQUFNQyxhQUFhLEdBQUdDLFFBQVEsQ0FBQ0MsS0FBL0I7QUFDQUQsSUFBQUEsUUFBUSxDQUFDQyxLQUFULEdBQWlCTixRQUFqQjtBQUNBLFdBQU8sWUFBTTtBQUNaSyxNQUFBQSxRQUFRLENBQUNDLEtBQVQsR0FBaUJGLGFBQWpCO0FBQ0EsS0FGRDtBQUdBLEdBTkQ7QUFPQSxDQWRNO0FBZ0JQOzs7Ozs7OztBQUlPLElBQU1HLFFBQVEsR0FBRyxTQUFYQSxRQUFXO0FBQUEsU0FBTVQsWUFBTjtBQUFBLENBQWpCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcclxuaW1wb3J0IGlzTm9kZSBmcm9tICcuL2lzTm9kZSc7XHJcblxyXG5sZXQgY3VycmVudFRpdGxlID0gJyc7XHJcblxyXG4vKipcclxuICogVGhpcyBob29rIHdpbGwgc2V0IHRoZSB3aW5kb3cgdGl0bGUsIHdoZW4gYSBjb21wb25lbnQgZ2V0cyBtb3VudGVkLlxyXG4gKiBXaGVuIHRoZSBjb21wb25lbnQgZ2V0cyB1bm1vdW50ZWQsIHRoZSBwcmV2aW91c2x5IHVzZWQgdGl0bGUgd2lsbCBiZSByZXN0b3JlZC5cclxuICogQHBhcmFtIHtzdHJpbmd9IGluU3RyaW5nXHJcbiAqL1xyXG5leHBvcnQgY29uc3QgdXNlVGl0bGUgPSAoaW5TdHJpbmcpID0+IHtcclxuXHRjdXJyZW50VGl0bGUgPSBpblN0cmluZztcclxuXHJcblx0aWYoaXNOb2RlKXtcclxuXHRcdHJldHVybjtcclxuXHR9XHJcblxyXG5cdFJlYWN0LnVzZUVmZmVjdCgoKSA9PiB7XHJcblx0XHRjb25zdCBwcmV2aW91c1RpdGxlID0gZG9jdW1lbnQudGl0bGU7XHJcblx0XHRkb2N1bWVudC50aXRsZSA9IGluU3RyaW5nO1xyXG5cdFx0cmV0dXJuICgpID0+IHtcclxuXHRcdFx0ZG9jdW1lbnQudGl0bGUgPSBwcmV2aW91c1RpdGxlO1xyXG5cdFx0fTtcclxuXHR9KTtcclxufTtcclxuXHJcbi8qKlxyXG4gKiBSZXR1cm5zIHRoZSBjdXJyZW50IHdpbmRvdyB0aXRsZSB0byBiZSB1c2VkIGluIGEgU1NSIGNvbnRleHRcclxuICogQHJldHVybnMge3N0cmluZ31cclxuICovXHJcbmV4cG9ydCBjb25zdCBnZXRUaXRsZSA9ICgpID0+IGN1cnJlbnRUaXRsZTtcclxuIl19
+
+/***/ }),
+
 /***/ "./node_modules/is-buffer/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/is-buffer/index.js ***!
@@ -34332,6 +35493,537 @@ var index = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext || create
 
 /***/ }),
 
+/***/ "./node_modules/node-libs-browser/node_modules/punycode/punycode.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/node-libs-browser/node_modules/punycode/punycode.js ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.4.1 by @mathias */
+;(function(root) {
+
+	/** Detect free variables */
+	var freeExports =  true && exports &&
+		!exports.nodeType && exports;
+	var freeModule =  true && module &&
+		!module.nodeType && module;
+	var freeGlobal = typeof global == 'object' && global;
+	if (
+		freeGlobal.global === freeGlobal ||
+		freeGlobal.window === freeGlobal ||
+		freeGlobal.self === freeGlobal
+	) {
+		root = freeGlobal;
+	}
+
+	/**
+	 * The `punycode` object.
+	 * @name punycode
+	 * @type Object
+	 */
+	var punycode,
+
+	/** Highest positive signed 32-bit float value */
+	maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
+
+	/** Bootstring parameters */
+	base = 36,
+	tMin = 1,
+	tMax = 26,
+	skew = 38,
+	damp = 700,
+	initialBias = 72,
+	initialN = 128, // 0x80
+	delimiter = '-', // '\x2D'
+
+	/** Regular expressions */
+	regexPunycode = /^xn--/,
+	regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
+	regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
+
+	/** Error messages */
+	errors = {
+		'overflow': 'Overflow: input needs wider integers to process',
+		'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
+		'invalid-input': 'Invalid input'
+	},
+
+	/** Convenience shortcuts */
+	baseMinusTMin = base - tMin,
+	floor = Math.floor,
+	stringFromCharCode = String.fromCharCode,
+
+	/** Temporary variable */
+	key;
+
+	/*--------------------------------------------------------------------------*/
+
+	/**
+	 * A generic error utility function.
+	 * @private
+	 * @param {String} type The error type.
+	 * @returns {Error} Throws a `RangeError` with the applicable error message.
+	 */
+	function error(type) {
+		throw new RangeError(errors[type]);
+	}
+
+	/**
+	 * A generic `Array#map` utility function.
+	 * @private
+	 * @param {Array} array The array to iterate over.
+	 * @param {Function} callback The function that gets called for every array
+	 * item.
+	 * @returns {Array} A new array of values returned by the callback function.
+	 */
+	function map(array, fn) {
+		var length = array.length;
+		var result = [];
+		while (length--) {
+			result[length] = fn(array[length]);
+		}
+		return result;
+	}
+
+	/**
+	 * A simple `Array#map`-like wrapper to work with domain name strings or email
+	 * addresses.
+	 * @private
+	 * @param {String} domain The domain name or email address.
+	 * @param {Function} callback The function that gets called for every
+	 * character.
+	 * @returns {Array} A new string of characters returned by the callback
+	 * function.
+	 */
+	function mapDomain(string, fn) {
+		var parts = string.split('@');
+		var result = '';
+		if (parts.length > 1) {
+			// In email addresses, only the domain name should be punycoded. Leave
+			// the local part (i.e. everything up to `@`) intact.
+			result = parts[0] + '@';
+			string = parts[1];
+		}
+		// Avoid `split(regex)` for IE8 compatibility. See #17.
+		string = string.replace(regexSeparators, '\x2E');
+		var labels = string.split('.');
+		var encoded = map(labels, fn).join('.');
+		return result + encoded;
+	}
+
+	/**
+	 * Creates an array containing the numeric code points of each Unicode
+	 * character in the string. While JavaScript uses UCS-2 internally,
+	 * this function will convert a pair of surrogate halves (each of which
+	 * UCS-2 exposes as separate characters) into a single code point,
+	 * matching UTF-16.
+	 * @see `punycode.ucs2.encode`
+	 * @see <https://mathiasbynens.be/notes/javascript-encoding>
+	 * @memberOf punycode.ucs2
+	 * @name decode
+	 * @param {String} string The Unicode input string (UCS-2).
+	 * @returns {Array} The new array of code points.
+	 */
+	function ucs2decode(string) {
+		var output = [],
+		    counter = 0,
+		    length = string.length,
+		    value,
+		    extra;
+		while (counter < length) {
+			value = string.charCodeAt(counter++);
+			if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
+				// high surrogate, and there is a next character
+				extra = string.charCodeAt(counter++);
+				if ((extra & 0xFC00) == 0xDC00) { // low surrogate
+					output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
+				} else {
+					// unmatched surrogate; only append this code unit, in case the next
+					// code unit is the high surrogate of a surrogate pair
+					output.push(value);
+					counter--;
+				}
+			} else {
+				output.push(value);
+			}
+		}
+		return output;
+	}
+
+	/**
+	 * Creates a string based on an array of numeric code points.
+	 * @see `punycode.ucs2.decode`
+	 * @memberOf punycode.ucs2
+	 * @name encode
+	 * @param {Array} codePoints The array of numeric code points.
+	 * @returns {String} The new Unicode string (UCS-2).
+	 */
+	function ucs2encode(array) {
+		return map(array, function(value) {
+			var output = '';
+			if (value > 0xFFFF) {
+				value -= 0x10000;
+				output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
+				value = 0xDC00 | value & 0x3FF;
+			}
+			output += stringFromCharCode(value);
+			return output;
+		}).join('');
+	}
+
+	/**
+	 * Converts a basic code point into a digit/integer.
+	 * @see `digitToBasic()`
+	 * @private
+	 * @param {Number} codePoint The basic numeric code point value.
+	 * @returns {Number} The numeric value of a basic code point (for use in
+	 * representing integers) in the range `0` to `base - 1`, or `base` if
+	 * the code point does not represent a value.
+	 */
+	function basicToDigit(codePoint) {
+		if (codePoint - 48 < 10) {
+			return codePoint - 22;
+		}
+		if (codePoint - 65 < 26) {
+			return codePoint - 65;
+		}
+		if (codePoint - 97 < 26) {
+			return codePoint - 97;
+		}
+		return base;
+	}
+
+	/**
+	 * Converts a digit/integer into a basic code point.
+	 * @see `basicToDigit()`
+	 * @private
+	 * @param {Number} digit The numeric value of a basic code point.
+	 * @returns {Number} The basic code point whose value (when used for
+	 * representing integers) is `digit`, which needs to be in the range
+	 * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
+	 * used; else, the lowercase form is used. The behavior is undefined
+	 * if `flag` is non-zero and `digit` has no uppercase form.
+	 */
+	function digitToBasic(digit, flag) {
+		//  0..25 map to ASCII a..z or A..Z
+		// 26..35 map to ASCII 0..9
+		return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
+	}
+
+	/**
+	 * Bias adaptation function as per section 3.4 of RFC 3492.
+	 * https://tools.ietf.org/html/rfc3492#section-3.4
+	 * @private
+	 */
+	function adapt(delta, numPoints, firstTime) {
+		var k = 0;
+		delta = firstTime ? floor(delta / damp) : delta >> 1;
+		delta += floor(delta / numPoints);
+		for (/* no initialization */; delta > baseMinusTMin * tMax >> 1; k += base) {
+			delta = floor(delta / baseMinusTMin);
+		}
+		return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
+	}
+
+	/**
+	 * Converts a Punycode string of ASCII-only symbols to a string of Unicode
+	 * symbols.
+	 * @memberOf punycode
+	 * @param {String} input The Punycode string of ASCII-only symbols.
+	 * @returns {String} The resulting string of Unicode symbols.
+	 */
+	function decode(input) {
+		// Don't use UCS-2
+		var output = [],
+		    inputLength = input.length,
+		    out,
+		    i = 0,
+		    n = initialN,
+		    bias = initialBias,
+		    basic,
+		    j,
+		    index,
+		    oldi,
+		    w,
+		    k,
+		    digit,
+		    t,
+		    /** Cached calculation results */
+		    baseMinusT;
+
+		// Handle the basic code points: let `basic` be the number of input code
+		// points before the last delimiter, or `0` if there is none, then copy
+		// the first basic code points to the output.
+
+		basic = input.lastIndexOf(delimiter);
+		if (basic < 0) {
+			basic = 0;
+		}
+
+		for (j = 0; j < basic; ++j) {
+			// if it's not a basic code point
+			if (input.charCodeAt(j) >= 0x80) {
+				error('not-basic');
+			}
+			output.push(input.charCodeAt(j));
+		}
+
+		// Main decoding loop: start just after the last delimiter if any basic code
+		// points were copied; start at the beginning otherwise.
+
+		for (index = basic > 0 ? basic + 1 : 0; index < inputLength; /* no final expression */) {
+
+			// `index` is the index of the next character to be consumed.
+			// Decode a generalized variable-length integer into `delta`,
+			// which gets added to `i`. The overflow checking is easier
+			// if we increase `i` as we go, then subtract off its starting
+			// value at the end to obtain `delta`.
+			for (oldi = i, w = 1, k = base; /* no condition */; k += base) {
+
+				if (index >= inputLength) {
+					error('invalid-input');
+				}
+
+				digit = basicToDigit(input.charCodeAt(index++));
+
+				if (digit >= base || digit > floor((maxInt - i) / w)) {
+					error('overflow');
+				}
+
+				i += digit * w;
+				t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+
+				if (digit < t) {
+					break;
+				}
+
+				baseMinusT = base - t;
+				if (w > floor(maxInt / baseMinusT)) {
+					error('overflow');
+				}
+
+				w *= baseMinusT;
+
+			}
+
+			out = output.length + 1;
+			bias = adapt(i - oldi, out, oldi == 0);
+
+			// `i` was supposed to wrap around from `out` to `0`,
+			// incrementing `n` each time, so we'll fix that now:
+			if (floor(i / out) > maxInt - n) {
+				error('overflow');
+			}
+
+			n += floor(i / out);
+			i %= out;
+
+			// Insert `n` at position `i` of the output
+			output.splice(i++, 0, n);
+
+		}
+
+		return ucs2encode(output);
+	}
+
+	/**
+	 * Converts a string of Unicode symbols (e.g. a domain name label) to a
+	 * Punycode string of ASCII-only symbols.
+	 * @memberOf punycode
+	 * @param {String} input The string of Unicode symbols.
+	 * @returns {String} The resulting Punycode string of ASCII-only symbols.
+	 */
+	function encode(input) {
+		var n,
+		    delta,
+		    handledCPCount,
+		    basicLength,
+		    bias,
+		    j,
+		    m,
+		    q,
+		    k,
+		    t,
+		    currentValue,
+		    output = [],
+		    /** `inputLength` will hold the number of code points in `input`. */
+		    inputLength,
+		    /** Cached calculation results */
+		    handledCPCountPlusOne,
+		    baseMinusT,
+		    qMinusT;
+
+		// Convert the input in UCS-2 to Unicode
+		input = ucs2decode(input);
+
+		// Cache the length
+		inputLength = input.length;
+
+		// Initialize the state
+		n = initialN;
+		delta = 0;
+		bias = initialBias;
+
+		// Handle the basic code points
+		for (j = 0; j < inputLength; ++j) {
+			currentValue = input[j];
+			if (currentValue < 0x80) {
+				output.push(stringFromCharCode(currentValue));
+			}
+		}
+
+		handledCPCount = basicLength = output.length;
+
+		// `handledCPCount` is the number of code points that have been handled;
+		// `basicLength` is the number of basic code points.
+
+		// Finish the basic string - if it is not empty - with a delimiter
+		if (basicLength) {
+			output.push(delimiter);
+		}
+
+		// Main encoding loop:
+		while (handledCPCount < inputLength) {
+
+			// All non-basic code points < n have been handled already. Find the next
+			// larger one:
+			for (m = maxInt, j = 0; j < inputLength; ++j) {
+				currentValue = input[j];
+				if (currentValue >= n && currentValue < m) {
+					m = currentValue;
+				}
+			}
+
+			// Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
+			// but guard against overflow
+			handledCPCountPlusOne = handledCPCount + 1;
+			if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
+				error('overflow');
+			}
+
+			delta += (m - n) * handledCPCountPlusOne;
+			n = m;
+
+			for (j = 0; j < inputLength; ++j) {
+				currentValue = input[j];
+
+				if (currentValue < n && ++delta > maxInt) {
+					error('overflow');
+				}
+
+				if (currentValue == n) {
+					// Represent delta as a generalized variable-length integer
+					for (q = delta, k = base; /* no condition */; k += base) {
+						t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+						if (q < t) {
+							break;
+						}
+						qMinusT = q - t;
+						baseMinusT = base - t;
+						output.push(
+							stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0))
+						);
+						q = floor(qMinusT / baseMinusT);
+					}
+
+					output.push(stringFromCharCode(digitToBasic(q, 0)));
+					bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
+					delta = 0;
+					++handledCPCount;
+				}
+			}
+
+			++delta;
+			++n;
+
+		}
+		return output.join('');
+	}
+
+	/**
+	 * Converts a Punycode string representing a domain name or an email address
+	 * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
+	 * it doesn't matter if you call it on a string that has already been
+	 * converted to Unicode.
+	 * @memberOf punycode
+	 * @param {String} input The Punycoded domain name or email address to
+	 * convert to Unicode.
+	 * @returns {String} The Unicode representation of the given Punycode
+	 * string.
+	 */
+	function toUnicode(input) {
+		return mapDomain(input, function(string) {
+			return regexPunycode.test(string)
+				? decode(string.slice(4).toLowerCase())
+				: string;
+		});
+	}
+
+	/**
+	 * Converts a Unicode string representing a domain name or an email address to
+	 * Punycode. Only the non-ASCII parts of the domain name will be converted,
+	 * i.e. it doesn't matter if you call it with a domain that's already in
+	 * ASCII.
+	 * @memberOf punycode
+	 * @param {String} input The domain name or email address to convert, as a
+	 * Unicode string.
+	 * @returns {String} The Punycode representation of the given domain name or
+	 * email address.
+	 */
+	function toASCII(input) {
+		return mapDomain(input, function(string) {
+			return regexNonASCII.test(string)
+				? 'xn--' + encode(string)
+				: string;
+		});
+	}
+
+	/*--------------------------------------------------------------------------*/
+
+	/** Define the public API */
+	punycode = {
+		/**
+		 * A string representing the current Punycode.js version number.
+		 * @memberOf punycode
+		 * @type String
+		 */
+		'version': '1.4.1',
+		/**
+		 * An object of methods to convert from JavaScript's internal character
+		 * representation (UCS-2) to Unicode code points, and back.
+		 * @see <https://mathiasbynens.be/notes/javascript-encoding>
+		 * @memberOf punycode
+		 * @type Object
+		 */
+		'ucs2': {
+			'decode': ucs2decode,
+			'encode': ucs2encode
+		},
+		'decode': decode,
+		'encode': encode,
+		'toASCII': toASCII,
+		'toUnicode': toUnicode
+	};
+
+	/** Expose `punycode` */
+	// Some AMD build optimizers, like r.js, check for specific condition patterns
+	// like the following:
+	if (
+		true
+	) {
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+			return punycode;
+		}).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+
+}(this));
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module), __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -38022,6 +39714,215 @@ if (true) {
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+
+/***/ "./node_modules/querystring-es3/decode.js":
+/*!************************************************!*\
+  !*** ./node_modules/querystring-es3/decode.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+// If obj.hasOwnProperty has been overridden, then calling
+// obj.hasOwnProperty(prop) will break.
+// See: https://github.com/joyent/node/issues/1707
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+module.exports = function(qs, sep, eq, options) {
+  sep = sep || '&';
+  eq = eq || '=';
+  var obj = {};
+
+  if (typeof qs !== 'string' || qs.length === 0) {
+    return obj;
+  }
+
+  var regexp = /\+/g;
+  qs = qs.split(sep);
+
+  var maxKeys = 1000;
+  if (options && typeof options.maxKeys === 'number') {
+    maxKeys = options.maxKeys;
+  }
+
+  var len = qs.length;
+  // maxKeys <= 0 means that we should not limit keys count
+  if (maxKeys > 0 && len > maxKeys) {
+    len = maxKeys;
+  }
+
+  for (var i = 0; i < len; ++i) {
+    var x = qs[i].replace(regexp, '%20'),
+        idx = x.indexOf(eq),
+        kstr, vstr, k, v;
+
+    if (idx >= 0) {
+      kstr = x.substr(0, idx);
+      vstr = x.substr(idx + 1);
+    } else {
+      kstr = x;
+      vstr = '';
+    }
+
+    k = decodeURIComponent(kstr);
+    v = decodeURIComponent(vstr);
+
+    if (!hasOwnProperty(obj, k)) {
+      obj[k] = v;
+    } else if (isArray(obj[k])) {
+      obj[k].push(v);
+    } else {
+      obj[k] = [obj[k], v];
+    }
+  }
+
+  return obj;
+};
+
+var isArray = Array.isArray || function (xs) {
+  return Object.prototype.toString.call(xs) === '[object Array]';
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/querystring-es3/encode.js":
+/*!************************************************!*\
+  !*** ./node_modules/querystring-es3/encode.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+var stringifyPrimitive = function(v) {
+  switch (typeof v) {
+    case 'string':
+      return v;
+
+    case 'boolean':
+      return v ? 'true' : 'false';
+
+    case 'number':
+      return isFinite(v) ? v : '';
+
+    default:
+      return '';
+  }
+};
+
+module.exports = function(obj, sep, eq, name) {
+  sep = sep || '&';
+  eq = eq || '=';
+  if (obj === null) {
+    obj = undefined;
+  }
+
+  if (typeof obj === 'object') {
+    return map(objectKeys(obj), function(k) {
+      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
+      if (isArray(obj[k])) {
+        return map(obj[k], function(v) {
+          return ks + encodeURIComponent(stringifyPrimitive(v));
+        }).join(sep);
+      } else {
+        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
+      }
+    }).join(sep);
+
+  }
+
+  if (!name) return '';
+  return encodeURIComponent(stringifyPrimitive(name)) + eq +
+         encodeURIComponent(stringifyPrimitive(obj));
+};
+
+var isArray = Array.isArray || function (xs) {
+  return Object.prototype.toString.call(xs) === '[object Array]';
+};
+
+function map (xs, f) {
+  if (xs.map) return xs.map(f);
+  var res = [];
+  for (var i = 0; i < xs.length; i++) {
+    res.push(f(xs[i], i));
+  }
+  return res;
+}
+
+var objectKeys = Object.keys || function (obj) {
+  var res = [];
+  for (var key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) res.push(key);
+  }
+  return res;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/querystring-es3/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/querystring-es3/index.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.decode = exports.parse = __webpack_require__(/*! ./decode */ "./node_modules/querystring-es3/decode.js");
+exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node_modules/querystring-es3/encode.js");
 
 
 /***/ }),
@@ -66147,7 +68048,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72702,6 +74603,778 @@ function warning(condition, message) {
 
 /***/ }),
 
+/***/ "./node_modules/url/url.js":
+/*!*********************************!*\
+  !*** ./node_modules/url/url.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+var punycode = __webpack_require__(/*! punycode */ "./node_modules/node-libs-browser/node_modules/punycode/punycode.js");
+var util = __webpack_require__(/*! ./util */ "./node_modules/url/util.js");
+
+exports.parse = urlParse;
+exports.resolve = urlResolve;
+exports.resolveObject = urlResolveObject;
+exports.format = urlFormat;
+
+exports.Url = Url;
+
+function Url() {
+  this.protocol = null;
+  this.slashes = null;
+  this.auth = null;
+  this.host = null;
+  this.port = null;
+  this.hostname = null;
+  this.hash = null;
+  this.search = null;
+  this.query = null;
+  this.pathname = null;
+  this.path = null;
+  this.href = null;
+}
+
+// Reference: RFC 3986, RFC 1808, RFC 2396
+
+// define these here so at least they only have to be
+// compiled once on the first module load.
+var protocolPattern = /^([a-z0-9.+-]+:)/i,
+    portPattern = /:[0-9]*$/,
+
+    // Special case for a simple path URL
+    simplePathPattern = /^(\/\/?(?!\/)[^\?\s]*)(\?[^\s]*)?$/,
+
+    // RFC 2396: characters reserved for delimiting URLs.
+    // We actually just auto-escape these.
+    delims = ['<', '>', '"', '`', ' ', '\r', '\n', '\t'],
+
+    // RFC 2396: characters not allowed for various reasons.
+    unwise = ['{', '}', '|', '\\', '^', '`'].concat(delims),
+
+    // Allowed by RFCs, but cause of XSS attacks.  Always escape these.
+    autoEscape = ['\''].concat(unwise),
+    // Characters that are never ever allowed in a hostname.
+    // Note that any invalid chars are also handled, but these
+    // are the ones that are *expected* to be seen, so we fast-path
+    // them.
+    nonHostChars = ['%', '/', '?', ';', '#'].concat(autoEscape),
+    hostEndingChars = ['/', '?', '#'],
+    hostnameMaxLen = 255,
+    hostnamePartPattern = /^[+a-z0-9A-Z_-]{0,63}$/,
+    hostnamePartStart = /^([+a-z0-9A-Z_-]{0,63})(.*)$/,
+    // protocols that can allow "unsafe" and "unwise" chars.
+    unsafeProtocol = {
+      'javascript': true,
+      'javascript:': true
+    },
+    // protocols that never have a hostname.
+    hostlessProtocol = {
+      'javascript': true,
+      'javascript:': true
+    },
+    // protocols that always contain a // bit.
+    slashedProtocol = {
+      'http': true,
+      'https': true,
+      'ftp': true,
+      'gopher': true,
+      'file': true,
+      'http:': true,
+      'https:': true,
+      'ftp:': true,
+      'gopher:': true,
+      'file:': true
+    },
+    querystring = __webpack_require__(/*! querystring */ "./node_modules/querystring-es3/index.js");
+
+function urlParse(url, parseQueryString, slashesDenoteHost) {
+  if (url && util.isObject(url) && url instanceof Url) return url;
+
+  var u = new Url;
+  u.parse(url, parseQueryString, slashesDenoteHost);
+  return u;
+}
+
+Url.prototype.parse = function(url, parseQueryString, slashesDenoteHost) {
+  if (!util.isString(url)) {
+    throw new TypeError("Parameter 'url' must be a string, not " + typeof url);
+  }
+
+  // Copy chrome, IE, opera backslash-handling behavior.
+  // Back slashes before the query string get converted to forward slashes
+  // See: https://code.google.com/p/chromium/issues/detail?id=25916
+  var queryIndex = url.indexOf('?'),
+      splitter =
+          (queryIndex !== -1 && queryIndex < url.indexOf('#')) ? '?' : '#',
+      uSplit = url.split(splitter),
+      slashRegex = /\\/g;
+  uSplit[0] = uSplit[0].replace(slashRegex, '/');
+  url = uSplit.join(splitter);
+
+  var rest = url;
+
+  // trim before proceeding.
+  // This is to support parse stuff like "  http://foo.com  \n"
+  rest = rest.trim();
+
+  if (!slashesDenoteHost && url.split('#').length === 1) {
+    // Try fast path regexp
+    var simplePath = simplePathPattern.exec(rest);
+    if (simplePath) {
+      this.path = rest;
+      this.href = rest;
+      this.pathname = simplePath[1];
+      if (simplePath[2]) {
+        this.search = simplePath[2];
+        if (parseQueryString) {
+          this.query = querystring.parse(this.search.substr(1));
+        } else {
+          this.query = this.search.substr(1);
+        }
+      } else if (parseQueryString) {
+        this.search = '';
+        this.query = {};
+      }
+      return this;
+    }
+  }
+
+  var proto = protocolPattern.exec(rest);
+  if (proto) {
+    proto = proto[0];
+    var lowerProto = proto.toLowerCase();
+    this.protocol = lowerProto;
+    rest = rest.substr(proto.length);
+  }
+
+  // figure out if it's got a host
+  // user@server is *always* interpreted as a hostname, and url
+  // resolution will treat //foo/bar as host=foo,path=bar because that's
+  // how the browser resolves relative URLs.
+  if (slashesDenoteHost || proto || rest.match(/^\/\/[^@\/]+@[^@\/]+/)) {
+    var slashes = rest.substr(0, 2) === '//';
+    if (slashes && !(proto && hostlessProtocol[proto])) {
+      rest = rest.substr(2);
+      this.slashes = true;
+    }
+  }
+
+  if (!hostlessProtocol[proto] &&
+      (slashes || (proto && !slashedProtocol[proto]))) {
+
+    // there's a hostname.
+    // the first instance of /, ?, ;, or # ends the host.
+    //
+    // If there is an @ in the hostname, then non-host chars *are* allowed
+    // to the left of the last @ sign, unless some host-ending character
+    // comes *before* the @-sign.
+    // URLs are obnoxious.
+    //
+    // ex:
+    // http://a@b@c/ => user:a@b host:c
+    // http://a@b?@c => user:a host:c path:/?@c
+
+    // v0.12 TODO(isaacs): This is not quite how Chrome does things.
+    // Review our test case against browsers more comprehensively.
+
+    // find the first instance of any hostEndingChars
+    var hostEnd = -1;
+    for (var i = 0; i < hostEndingChars.length; i++) {
+      var hec = rest.indexOf(hostEndingChars[i]);
+      if (hec !== -1 && (hostEnd === -1 || hec < hostEnd))
+        hostEnd = hec;
+    }
+
+    // at this point, either we have an explicit point where the
+    // auth portion cannot go past, or the last @ char is the decider.
+    var auth, atSign;
+    if (hostEnd === -1) {
+      // atSign can be anywhere.
+      atSign = rest.lastIndexOf('@');
+    } else {
+      // atSign must be in auth portion.
+      // http://a@b/c@d => host:b auth:a path:/c@d
+      atSign = rest.lastIndexOf('@', hostEnd);
+    }
+
+    // Now we have a portion which is definitely the auth.
+    // Pull that off.
+    if (atSign !== -1) {
+      auth = rest.slice(0, atSign);
+      rest = rest.slice(atSign + 1);
+      this.auth = decodeURIComponent(auth);
+    }
+
+    // the host is the remaining to the left of the first non-host char
+    hostEnd = -1;
+    for (var i = 0; i < nonHostChars.length; i++) {
+      var hec = rest.indexOf(nonHostChars[i]);
+      if (hec !== -1 && (hostEnd === -1 || hec < hostEnd))
+        hostEnd = hec;
+    }
+    // if we still have not hit it, then the entire thing is a host.
+    if (hostEnd === -1)
+      hostEnd = rest.length;
+
+    this.host = rest.slice(0, hostEnd);
+    rest = rest.slice(hostEnd);
+
+    // pull out port.
+    this.parseHost();
+
+    // we've indicated that there is a hostname,
+    // so even if it's empty, it has to be present.
+    this.hostname = this.hostname || '';
+
+    // if hostname begins with [ and ends with ]
+    // assume that it's an IPv6 address.
+    var ipv6Hostname = this.hostname[0] === '[' &&
+        this.hostname[this.hostname.length - 1] === ']';
+
+    // validate a little.
+    if (!ipv6Hostname) {
+      var hostparts = this.hostname.split(/\./);
+      for (var i = 0, l = hostparts.length; i < l; i++) {
+        var part = hostparts[i];
+        if (!part) continue;
+        if (!part.match(hostnamePartPattern)) {
+          var newpart = '';
+          for (var j = 0, k = part.length; j < k; j++) {
+            if (part.charCodeAt(j) > 127) {
+              // we replace non-ASCII char with a temporary placeholder
+              // we need this to make sure size of hostname is not
+              // broken by replacing non-ASCII by nothing
+              newpart += 'x';
+            } else {
+              newpart += part[j];
+            }
+          }
+          // we test again with ASCII char only
+          if (!newpart.match(hostnamePartPattern)) {
+            var validParts = hostparts.slice(0, i);
+            var notHost = hostparts.slice(i + 1);
+            var bit = part.match(hostnamePartStart);
+            if (bit) {
+              validParts.push(bit[1]);
+              notHost.unshift(bit[2]);
+            }
+            if (notHost.length) {
+              rest = '/' + notHost.join('.') + rest;
+            }
+            this.hostname = validParts.join('.');
+            break;
+          }
+        }
+      }
+    }
+
+    if (this.hostname.length > hostnameMaxLen) {
+      this.hostname = '';
+    } else {
+      // hostnames are always lower case.
+      this.hostname = this.hostname.toLowerCase();
+    }
+
+    if (!ipv6Hostname) {
+      // IDNA Support: Returns a punycoded representation of "domain".
+      // It only converts parts of the domain name that
+      // have non-ASCII characters, i.e. it doesn't matter if
+      // you call it with a domain that already is ASCII-only.
+      this.hostname = punycode.toASCII(this.hostname);
+    }
+
+    var p = this.port ? ':' + this.port : '';
+    var h = this.hostname || '';
+    this.host = h + p;
+    this.href += this.host;
+
+    // strip [ and ] from the hostname
+    // the host field still retains them, though
+    if (ipv6Hostname) {
+      this.hostname = this.hostname.substr(1, this.hostname.length - 2);
+      if (rest[0] !== '/') {
+        rest = '/' + rest;
+      }
+    }
+  }
+
+  // now rest is set to the post-host stuff.
+  // chop off any delim chars.
+  if (!unsafeProtocol[lowerProto]) {
+
+    // First, make 100% sure that any "autoEscape" chars get
+    // escaped, even if encodeURIComponent doesn't think they
+    // need to be.
+    for (var i = 0, l = autoEscape.length; i < l; i++) {
+      var ae = autoEscape[i];
+      if (rest.indexOf(ae) === -1)
+        continue;
+      var esc = encodeURIComponent(ae);
+      if (esc === ae) {
+        esc = escape(ae);
+      }
+      rest = rest.split(ae).join(esc);
+    }
+  }
+
+
+  // chop off from the tail first.
+  var hash = rest.indexOf('#');
+  if (hash !== -1) {
+    // got a fragment string.
+    this.hash = rest.substr(hash);
+    rest = rest.slice(0, hash);
+  }
+  var qm = rest.indexOf('?');
+  if (qm !== -1) {
+    this.search = rest.substr(qm);
+    this.query = rest.substr(qm + 1);
+    if (parseQueryString) {
+      this.query = querystring.parse(this.query);
+    }
+    rest = rest.slice(0, qm);
+  } else if (parseQueryString) {
+    // no query string, but parseQueryString still requested
+    this.search = '';
+    this.query = {};
+  }
+  if (rest) this.pathname = rest;
+  if (slashedProtocol[lowerProto] &&
+      this.hostname && !this.pathname) {
+    this.pathname = '/';
+  }
+
+  //to support http.request
+  if (this.pathname || this.search) {
+    var p = this.pathname || '';
+    var s = this.search || '';
+    this.path = p + s;
+  }
+
+  // finally, reconstruct the href based on what has been validated.
+  this.href = this.format();
+  return this;
+};
+
+// format a parsed object into a url string
+function urlFormat(obj) {
+  // ensure it's an object, and not a string url.
+  // If it's an obj, this is a no-op.
+  // this way, you can call url_format() on strings
+  // to clean up potentially wonky urls.
+  if (util.isString(obj)) obj = urlParse(obj);
+  if (!(obj instanceof Url)) return Url.prototype.format.call(obj);
+  return obj.format();
+}
+
+Url.prototype.format = function() {
+  var auth = this.auth || '';
+  if (auth) {
+    auth = encodeURIComponent(auth);
+    auth = auth.replace(/%3A/i, ':');
+    auth += '@';
+  }
+
+  var protocol = this.protocol || '',
+      pathname = this.pathname || '',
+      hash = this.hash || '',
+      host = false,
+      query = '';
+
+  if (this.host) {
+    host = auth + this.host;
+  } else if (this.hostname) {
+    host = auth + (this.hostname.indexOf(':') === -1 ?
+        this.hostname :
+        '[' + this.hostname + ']');
+    if (this.port) {
+      host += ':' + this.port;
+    }
+  }
+
+  if (this.query &&
+      util.isObject(this.query) &&
+      Object.keys(this.query).length) {
+    query = querystring.stringify(this.query);
+  }
+
+  var search = this.search || (query && ('?' + query)) || '';
+
+  if (protocol && protocol.substr(-1) !== ':') protocol += ':';
+
+  // only the slashedProtocols get the //.  Not mailto:, xmpp:, etc.
+  // unless they had them to begin with.
+  if (this.slashes ||
+      (!protocol || slashedProtocol[protocol]) && host !== false) {
+    host = '//' + (host || '');
+    if (pathname && pathname.charAt(0) !== '/') pathname = '/' + pathname;
+  } else if (!host) {
+    host = '';
+  }
+
+  if (hash && hash.charAt(0) !== '#') hash = '#' + hash;
+  if (search && search.charAt(0) !== '?') search = '?' + search;
+
+  pathname = pathname.replace(/[?#]/g, function(match) {
+    return encodeURIComponent(match);
+  });
+  search = search.replace('#', '%23');
+
+  return protocol + host + pathname + search + hash;
+};
+
+function urlResolve(source, relative) {
+  return urlParse(source, false, true).resolve(relative);
+}
+
+Url.prototype.resolve = function(relative) {
+  return this.resolveObject(urlParse(relative, false, true)).format();
+};
+
+function urlResolveObject(source, relative) {
+  if (!source) return relative;
+  return urlParse(source, false, true).resolveObject(relative);
+}
+
+Url.prototype.resolveObject = function(relative) {
+  if (util.isString(relative)) {
+    var rel = new Url();
+    rel.parse(relative, false, true);
+    relative = rel;
+  }
+
+  var result = new Url();
+  var tkeys = Object.keys(this);
+  for (var tk = 0; tk < tkeys.length; tk++) {
+    var tkey = tkeys[tk];
+    result[tkey] = this[tkey];
+  }
+
+  // hash is always overridden, no matter what.
+  // even href="" will remove it.
+  result.hash = relative.hash;
+
+  // if the relative url is empty, then there's nothing left to do here.
+  if (relative.href === '') {
+    result.href = result.format();
+    return result;
+  }
+
+  // hrefs like //foo/bar always cut to the protocol.
+  if (relative.slashes && !relative.protocol) {
+    // take everything except the protocol from relative
+    var rkeys = Object.keys(relative);
+    for (var rk = 0; rk < rkeys.length; rk++) {
+      var rkey = rkeys[rk];
+      if (rkey !== 'protocol')
+        result[rkey] = relative[rkey];
+    }
+
+    //urlParse appends trailing / to urls like http://www.example.com
+    if (slashedProtocol[result.protocol] &&
+        result.hostname && !result.pathname) {
+      result.path = result.pathname = '/';
+    }
+
+    result.href = result.format();
+    return result;
+  }
+
+  if (relative.protocol && relative.protocol !== result.protocol) {
+    // if it's a known url protocol, then changing
+    // the protocol does weird things
+    // first, if it's not file:, then we MUST have a host,
+    // and if there was a path
+    // to begin with, then we MUST have a path.
+    // if it is file:, then the host is dropped,
+    // because that's known to be hostless.
+    // anything else is assumed to be absolute.
+    if (!slashedProtocol[relative.protocol]) {
+      var keys = Object.keys(relative);
+      for (var v = 0; v < keys.length; v++) {
+        var k = keys[v];
+        result[k] = relative[k];
+      }
+      result.href = result.format();
+      return result;
+    }
+
+    result.protocol = relative.protocol;
+    if (!relative.host && !hostlessProtocol[relative.protocol]) {
+      var relPath = (relative.pathname || '').split('/');
+      while (relPath.length && !(relative.host = relPath.shift()));
+      if (!relative.host) relative.host = '';
+      if (!relative.hostname) relative.hostname = '';
+      if (relPath[0] !== '') relPath.unshift('');
+      if (relPath.length < 2) relPath.unshift('');
+      result.pathname = relPath.join('/');
+    } else {
+      result.pathname = relative.pathname;
+    }
+    result.search = relative.search;
+    result.query = relative.query;
+    result.host = relative.host || '';
+    result.auth = relative.auth;
+    result.hostname = relative.hostname || relative.host;
+    result.port = relative.port;
+    // to support http.request
+    if (result.pathname || result.search) {
+      var p = result.pathname || '';
+      var s = result.search || '';
+      result.path = p + s;
+    }
+    result.slashes = result.slashes || relative.slashes;
+    result.href = result.format();
+    return result;
+  }
+
+  var isSourceAbs = (result.pathname && result.pathname.charAt(0) === '/'),
+      isRelAbs = (
+          relative.host ||
+          relative.pathname && relative.pathname.charAt(0) === '/'
+      ),
+      mustEndAbs = (isRelAbs || isSourceAbs ||
+                    (result.host && relative.pathname)),
+      removeAllDots = mustEndAbs,
+      srcPath = result.pathname && result.pathname.split('/') || [],
+      relPath = relative.pathname && relative.pathname.split('/') || [],
+      psychotic = result.protocol && !slashedProtocol[result.protocol];
+
+  // if the url is a non-slashed url, then relative
+  // links like ../.. should be able
+  // to crawl up to the hostname, as well.  This is strange.
+  // result.protocol has already been set by now.
+  // Later on, put the first path part into the host field.
+  if (psychotic) {
+    result.hostname = '';
+    result.port = null;
+    if (result.host) {
+      if (srcPath[0] === '') srcPath[0] = result.host;
+      else srcPath.unshift(result.host);
+    }
+    result.host = '';
+    if (relative.protocol) {
+      relative.hostname = null;
+      relative.port = null;
+      if (relative.host) {
+        if (relPath[0] === '') relPath[0] = relative.host;
+        else relPath.unshift(relative.host);
+      }
+      relative.host = null;
+    }
+    mustEndAbs = mustEndAbs && (relPath[0] === '' || srcPath[0] === '');
+  }
+
+  if (isRelAbs) {
+    // it's absolute.
+    result.host = (relative.host || relative.host === '') ?
+                  relative.host : result.host;
+    result.hostname = (relative.hostname || relative.hostname === '') ?
+                      relative.hostname : result.hostname;
+    result.search = relative.search;
+    result.query = relative.query;
+    srcPath = relPath;
+    // fall through to the dot-handling below.
+  } else if (relPath.length) {
+    // it's relative
+    // throw away the existing file, and take the new path instead.
+    if (!srcPath) srcPath = [];
+    srcPath.pop();
+    srcPath = srcPath.concat(relPath);
+    result.search = relative.search;
+    result.query = relative.query;
+  } else if (!util.isNullOrUndefined(relative.search)) {
+    // just pull out the search.
+    // like href='?foo'.
+    // Put this after the other two cases because it simplifies the booleans
+    if (psychotic) {
+      result.hostname = result.host = srcPath.shift();
+      //occationaly the auth can get stuck only in host
+      //this especially happens in cases like
+      //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
+      var authInHost = result.host && result.host.indexOf('@') > 0 ?
+                       result.host.split('@') : false;
+      if (authInHost) {
+        result.auth = authInHost.shift();
+        result.host = result.hostname = authInHost.shift();
+      }
+    }
+    result.search = relative.search;
+    result.query = relative.query;
+    //to support http.request
+    if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
+      result.path = (result.pathname ? result.pathname : '') +
+                    (result.search ? result.search : '');
+    }
+    result.href = result.format();
+    return result;
+  }
+
+  if (!srcPath.length) {
+    // no path at all.  easy.
+    // we've already handled the other stuff above.
+    result.pathname = null;
+    //to support http.request
+    if (result.search) {
+      result.path = '/' + result.search;
+    } else {
+      result.path = null;
+    }
+    result.href = result.format();
+    return result;
+  }
+
+  // if a url ENDs in . or .., then it must get a trailing slash.
+  // however, if it ends in anything else non-slashy,
+  // then it must NOT get a trailing slash.
+  var last = srcPath.slice(-1)[0];
+  var hasTrailingSlash = (
+      (result.host || relative.host || srcPath.length > 1) &&
+      (last === '.' || last === '..') || last === '');
+
+  // strip single dots, resolve double dots to parent dir
+  // if the path tries to go above the root, `up` ends up > 0
+  var up = 0;
+  for (var i = srcPath.length; i >= 0; i--) {
+    last = srcPath[i];
+    if (last === '.') {
+      srcPath.splice(i, 1);
+    } else if (last === '..') {
+      srcPath.splice(i, 1);
+      up++;
+    } else if (up) {
+      srcPath.splice(i, 1);
+      up--;
+    }
+  }
+
+  // if the path is allowed to go above the root, restore leading ..s
+  if (!mustEndAbs && !removeAllDots) {
+    for (; up--; up) {
+      srcPath.unshift('..');
+    }
+  }
+
+  if (mustEndAbs && srcPath[0] !== '' &&
+      (!srcPath[0] || srcPath[0].charAt(0) !== '/')) {
+    srcPath.unshift('');
+  }
+
+  if (hasTrailingSlash && (srcPath.join('/').substr(-1) !== '/')) {
+    srcPath.push('');
+  }
+
+  var isAbsolute = srcPath[0] === '' ||
+      (srcPath[0] && srcPath[0].charAt(0) === '/');
+
+  // put the host back
+  if (psychotic) {
+    result.hostname = result.host = isAbsolute ? '' :
+                                    srcPath.length ? srcPath.shift() : '';
+    //occationaly the auth can get stuck only in host
+    //this especially happens in cases like
+    //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
+    var authInHost = result.host && result.host.indexOf('@') > 0 ?
+                     result.host.split('@') : false;
+    if (authInHost) {
+      result.auth = authInHost.shift();
+      result.host = result.hostname = authInHost.shift();
+    }
+  }
+
+  mustEndAbs = mustEndAbs || (result.host && srcPath.length);
+
+  if (mustEndAbs && !isAbsolute) {
+    srcPath.unshift('');
+  }
+
+  if (!srcPath.length) {
+    result.pathname = null;
+    result.path = null;
+  } else {
+    result.pathname = srcPath.join('/');
+  }
+
+  //to support request.http
+  if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
+    result.path = (result.pathname ? result.pathname : '') +
+                  (result.search ? result.search : '');
+  }
+  result.auth = relative.auth || result.auth;
+  result.slashes = result.slashes || relative.slashes;
+  result.href = result.format();
+  return result;
+};
+
+Url.prototype.parseHost = function() {
+  var host = this.host;
+  var port = portPattern.exec(host);
+  if (port) {
+    port = port[0];
+    if (port !== ':') {
+      this.port = port.substr(1);
+    }
+    host = host.substr(0, host.length - port.length);
+  }
+  if (host) this.hostname = host;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/url/util.js":
+/*!**********************************!*\
+  !*** ./node_modules/url/util.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {
+  isString: function(arg) {
+    return typeof(arg) === 'string';
+  },
+  isObject: function(arg) {
+    return typeof(arg) === 'object' && arg !== null;
+  },
+  isNull: function(arg) {
+    return arg === null;
+  },
+  isNullOrUndefined: function(arg) {
+    return arg == null;
+  }
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/value-equal/esm/value-equal.js":
 /*!*****************************************************!*\
   !*** ./node_modules/value-equal/esm/value-equal.js ***!
@@ -72831,6 +75504,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _components_Master__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Master */ "./resources/js/components/Master.js");
 /* harmony import */ var _components_CreateProduct__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/CreateProduct */ "./resources/js/components/CreateProduct.js");
+/* harmony import */ var _components_DisplayProduct__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/DisplayProduct */ "./resources/js/components/DisplayProduct.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -72839,17 +75513,17 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-  to: '/'
-}, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+
+Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   path: "/",
   component: _components_Master__WEBPACK_IMPORTED_MODULE_3__["default"]
-}), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-  to: '/add'
-}, "CreateProduct"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-  path: "/add",
+}), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  path: "/add-product",
   exact: true,
   component: _components_CreateProduct__WEBPACK_IMPORTED_MODULE_4__["default"]
+}), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  path: "/display-product",
+  component: _components_DisplayProduct__WEBPACK_IMPORTED_MODULE_5__["default"]
 }))), document.getElementById('example'));
 
 /***/ }),
@@ -72910,7 +75584,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -72928,7 +75601,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -72970,13 +75642,16 @@ function (_Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
       var products = {
         name: this.state.productName,
         price: this.state.productPrice
       };
-      var uri = 'http://localhost:8000/items';
-      axios.post(uri, products).then(function (response) {// browserHistory.push('/display-item');
+      var uri = 'products';
+      axios.post(uri, products).then(function (response) {
+        _this2.props.history.push('/display-product');
       });
     }
   }, {
@@ -73019,10 +75694,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Master.js":
-/*!*******************************************!*\
-  !*** ./resources/js/components/Master.js ***!
-  \*******************************************/
+/***/ "./resources/js/components/DisplayProduct.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/DisplayProduct.js ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -73030,6 +75705,10 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _ProductRow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProductRow */ "./resources/js/components/ProductRow.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73050,6 +75729,104 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
+
+var DisplayProduct =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DisplayProduct, _Component);
+
+  function DisplayProduct(props) {
+    var _this;
+
+    _classCallCheck(this, DisplayProduct);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DisplayProduct).call(this, props));
+    _this.state = {
+      value: '',
+      items: ''
+    };
+    return _this;
+  }
+
+  _createClass(DisplayProduct, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('products').then(function (response) {
+        _this2.setState({
+          items: response.data
+        });
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: "tabRow",
+    value: function tabRow() {
+      if (this.state.items instanceof Array) {
+        return this.state.items.map(function (object, i) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ProductRow__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            obj: object,
+            key: i
+          });
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        className: "btn btn-primary",
+        to: "/add-product"
+      }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table table-hover"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "\u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "\u0426\u0435\u043D\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.tabRow()))));
+    }
+  }]);
+
+  return DisplayProduct;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (DisplayProduct);
+
+/***/ }),
+
+/***/ "./resources/js/components/Master.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Master.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
 var Master =
 /*#__PURE__*/
 function (_Component) {
@@ -73065,23 +75842,18 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "collapse navbar-collapse",
-        id: "bs-example-navbar-collapse-1"
+        className: "navbar navbar-expand-lg navbar-light bg-light"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "nav navbar-nav"
+        "class": "nav navbar-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "active"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "\u041F\u0443\u043D\u043A\u0442 1")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "\u041F\u0443\u043D\u043A\u0442 2")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "\u041F\u0443\u043D\u043A\u0442 3")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "\u041F\u0443\u043D\u043A\u0442 4")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "\u041F\u0443\u043D\u043A\u0442 5"))));
+        "class": "navbar-brand"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: '/'
+      }, "Home"), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        "class": "navbar-brand"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: '/display-product'
+      }, "\u041A\u0430\u0442\u0430\u043B\u043E\u0433"), " ")));
     }
   }]);
 
@@ -73089,6 +75861,89 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Master);
+
+/***/ }),
+
+/***/ "./resources/js/components/ProductRow.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/ProductRow.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var hookrouter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! hookrouter */ "./node_modules/hookrouter/dist/index.js");
+/* harmony import */ var hookrouter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(hookrouter__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var ProductRow =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ProductRow, _React$Component);
+
+  function ProductRow(props) {
+    var _this;
+
+    _classCallCheck(this, ProductRow);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ProductRow).call(this, props));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(ProductRow, [{
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      event.preventDefault();
+      var uri = "products/".concat(this.props.obj.id);
+      axios["delete"](uri).then(function (response) {
+        Object(hookrouter__WEBPACK_IMPORTED_MODULE_1__["useRedirect"])('/user', '/dashboard'); // navigate('/display-product/');
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, this.props.obj.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, this.props.obj.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "edit/" + this.props.obj.id,
+        className: "btn btn-primary"
+      }, "Edit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "submit",
+        value: "Delete",
+        className: "btn btn-danger"
+      }))));
+    }
+  }]);
+
+  return ProductRow;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (ProductRow);
 
 /***/ }),
 
