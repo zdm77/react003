@@ -22,49 +22,15 @@ class DisplayProduct extends Component {
     }
 
     componentDidMount() {
-
         this.createGrid();
     }
 
-    // deleteRecord(event) {
-    //    // event.preventDefault();
-    //     axios.get('products')
-    //         .then(response => {
-    //             this.setState({items: response.data});
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         })
-    //     // let uri = `products/${this.items.id}`;
-    //     // axios.delete(uri).then((response) => {
-    //     //
-    //     //     navigate('/display-product/');
-    //     // });
-    // }
 
     tabRow() {
         if (this.state.items instanceof Array) {
-             let refreshGrid = this.createGrid();
-
+            let refreshGrid = this.createGrid();
             return this.state.items.map(function (object, i) {
-
                 return <ProductRow obj={object} key={i} refreshGrid={refreshGrid}/>;
-                // return <tr>
-                //     <td>
-                //         {object.name}
-                //     </td>
-                //     <td>
-                //         {object.price}
-                //     </td>
-                //     <td>
-                //         <Link to={"edit/"+object.id} className="btn btn-primary">Edit</Link>
-                //     </td>
-                //     <td>
-                //         <form onSubmit={this.handleSubmit}>
-                //             <input type="submit" value="Delete" className="btn btn-danger"/>
-                //         </form>
-                //     </td>
-                // </tr>
             })
         }
     }
