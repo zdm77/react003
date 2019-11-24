@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
@@ -11,21 +13,39 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <!-- Styles -->
     <style>
+        .align-text-center {
+            text-align: center;
+        }
+
         .new {
             margin: 15px;
         }
+
+        .bold {
+            font-weight: bold;
+
+        }
+
+        p {
+            text-indent: 25px;
+            text-align: justify;
+        }
+
         .action {
             width: 32px;
         }
-        a:hover{
+
+        a:hover {
             text-decoration: none;
             background: #3F62CA;
             color: white;
 
         }
-        a{
+
+        a {
             padding: 5px;
         }
+
         html, body {
             background-color: #fff;
             color: #636b6f;
@@ -79,9 +99,7 @@
     </style>
 </head>
 <body>
-
 <div id="root"></div>
 <script src="{{asset('js/app.js')}}"></script>
-
 </body>
 </html>

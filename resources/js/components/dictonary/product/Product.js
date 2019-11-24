@@ -3,7 +3,8 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 import SaveButton from '@material-ui/icons/Save'
 import Button from '@material-ui/core/Button';
-import Back from '@material-ui/icons/KeyboardBackspace';
+import TopMenu from '../../TopMenu';
+
 /**
  * Форма создания/редактирования товара
  * @property this.props.match.params.id пришедший ID для режима редактирования
@@ -41,9 +42,11 @@ class Product extends Component {
             price: e.target.value
         })
     }
-    saveRecord (uri, products){
+
+    saveRecord(uri, products) {
 
     }
+
     handleSubmit(e) {
         e.preventDefault();
         const products = {
@@ -57,8 +60,12 @@ class Product extends Component {
             uri = 'products';
         }
         axios.post(uri, products).then((response) => {
-            this.props.history.push('/display-product');
-        });
+                this.props.history.push('/display-product');
+            },
+            (error) => {
+                alert('Ошибка сохранения, проверьте правильность введенных данных.');
+
+            });
 
 
     }
@@ -66,7 +73,7 @@ class Product extends Component {
     render() {
         return (
             <div className="container">
-
+                <TopMenu/>
                 <h1></h1>
                 <Link to="/display-product" className="btn btn-outline-secondary">Назад</Link>
                 <form onSubmit={this.handleSubmit}>

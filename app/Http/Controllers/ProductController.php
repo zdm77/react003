@@ -1,7 +1,9 @@
 <?php
 namespace App\Http\Controllers;
-use App\Product;
+
+use App\Model\Dictonary\Product;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Validator;
 class ProductController extends Controller
 {
     /**
@@ -11,6 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+
         $products = Product::orderBy('name')
             ->get();
         return response()->json($products);

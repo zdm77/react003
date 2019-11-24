@@ -14,8 +14,6 @@
 Route::get('/', function () {
     return view('index');
 });
-//Route::get('{reactRoutes}', function () {
-//    return view('welcome'); // your start view
-//})->where('reactRoutes', '^((?!api).)*$');
+
 Route::resource('products', 'ProductController');
 Route::post('products/{id}' , 'ProductController@update');

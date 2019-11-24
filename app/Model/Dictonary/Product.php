@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model\Dictonary;
 
 use Illuminate\Database\Eloquent\Model;
 

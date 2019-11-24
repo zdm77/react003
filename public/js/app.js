@@ -3834,35 +3834,6 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "./node_modules/@material-ui/icons/KeyboardBackspace.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@material-ui/icons/KeyboardBackspace.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
-
-var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
-  d: "M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"
-}), 'KeyboardBackspace');
-
-exports.default = _default;
-
-/***/ }),
-
 /***/ "./node_modules/@material-ui/icons/Save.js":
 /*!*************************************************!*\
   !*** ./node_modules/@material-ui/icons/Save.js ***!
@@ -84599,6 +84570,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _TopMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TopMenu */ "./resources/js/components/TopMenu.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -84616,6 +84589,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -84637,9 +84611,41 @@ function (_React$Component) {
   _createClass(About, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TopMenu__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TopMenu__WEBPACK_IMPORTED_MODULE_1__["default"], null), "\u041E \u043F\u0440\u043E\u0433\u0435");
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "align-text-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "\u0414\u0435\u043C\u043E\u043D\u0441\u0442\u0440\u0430\u0446\u0438\u0439 \u043F\u0440\u043E\u0435\u043A\u0442.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u0440\u0435\u0430\u043B\u0438\u0437\u0443\u0435\u0442 \u043E\u0441\u043D\u043E\u0432\u043D\u044B\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F \u043F\u043E \u0440\u0430\u0431\u043E\u0442\u0435 \u0441 \u0431\u0430\u0437\u043E\u0439 \u0434\u0430\u043D\u043D\u044B\u0445 (\u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440, \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0435, \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435, \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0435) \u043D\u0430 \u043F\u0440\u0438\u043C\u0435\u0440\u0435 \u043E\u0434\u043D\u043E\u0433\u043E \u0441\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u0438\u043A\u0430 - \u0422\u043E\u0432\u0430\u0440\u044B \u0432 \u043C\u0435\u043D\u044E \u041A\u0430\u0442\u0430\u043B\u043E\u0433.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u0417\u0430 \u043E\u0441\u043D\u043E\u0432\u0443 \u0432\u0437\u044F\u0442\u0430 \u0421\u0423\u0411\u0414 PostgreSQL. \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u0441 \u0411\u0414 \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0434\u0438\u0442 \u043F\u043E \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430\u043C Backend, \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435 \u0438 \u043D\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044F \u043F\u043E \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430\u043C Frontend."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "align-text-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, " Backend - Framework Laravel 5.8 :")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, " \u041E\u0441\u043E\u0431\u0435\u043D\u043D\u043E\u0441\u0442\u0438 \u0438 \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0430: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, " \u041C\u0430\u0440\u0448\u0440\u0443\u0442\u0438\u0437\u0430\u0446\u0438\u044F ( routes\\web.php)")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, "\u041D\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044F:"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u041F\u043E\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0434\u0430\u043B\u044C\u043D\u0435\u0439\u0448\u0430\u044F \u043D\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044F \u043E\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430\u043C\u0438 Frontend -ReactJS, \u043D\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u043E\u043D\u043D\u044B\u0439 \u043C\u0430\u0440\u0448\u0440\u0443\u0442 \u0443 backend \u0442\u043E\u043B\u044C\u043A\u043E \u043E\u0434\u0438\u043D - \u043A\u043E\u0440\u043D\u0435\u0432\u043E\u0439 \u0432\u0445\u043E\u0434: Route::get('/', .... \u0432\u043E\u0437\u0440\u0430\u0449\u0430\u044E\u0449\u0438\u0439 blade \u0448\u0430\u0431\u043B\u043E\u043D ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, " resources\\views\\index.blade.php"), " , \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u043C \u043D\u0430\u0445\u043E\u0434\u0438\u0442\u0441\u044F root \u044D\u043B\u0435\u043C\u0435\u043D\u0442 \u0434\u043B\u044F \u0434\u0430\u043B\u044C\u043D\u0435\u0448\u0435\u0439 \u0441\u0432\u044F\u0437\u0438 \u0441 React."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, "\u041E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435 \u0438 CRUD: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Laravel \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0435\u0442 \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u043E\u0434\u0438\u043D \u043C\u0430\u0440\u0448\u0440\u0443\u0442 \u043D\u0430 \u0432\u0441\u0435 \u043E\u0441\u043D\u043E\u0432\u043D\u044B\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F, \u0442\u0430\u043A \u043D\u0430\u0437\u044B\u0432\u0430\u0435\u043C\u044B\u0439 \u0440\u0435\u0441\u0443\u0440\u0441\u043D\u044B\u0439 \u043C\u0430\u0440\u0448\u0440\u0443\u0442.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, " Route::resource('products', 'ProductController');"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u041F\u0435\u0440\u0432\u044B\u043C \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u043E\u043C \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u0442\u0441\u044F \u0438\u043C\u044F \u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430, \u0432\u0442\u043E\u0440\u044B\u043C - \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u043B\u0435\u0440. ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u0415\u0441\u0442\u044C \u0442\u0430\u043A \u0436\u0435 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C \u0443\u0442\u043E\u0447\u043D\u044F\u0442\u044C \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F \u0432\u0440\u0443\u0447\u043D\u0443\u044E.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, " Route::post('products/id' , 'ProductController@update');"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u041F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u0442\u0441\u044F \u043C\u0430\u0440\u0448\u0440\u0443\u0442 \u0441 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u043E\u043C \u0438 \u043E\u0442\u043F\u0440\u0430\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u043D\u0430 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u043B\u0435\u0440 \u0432 \u043C\u0435\u0442\u043E\u0434 update.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, "\u041C\u043E\u0434\u0435\u043B\u044C:"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, "app\\Model\\Dictonary\\Product.php "), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u041C\u043E\u0434\u0435\u043B\u044C Product - \u043E\u0434\u043D\u043E\u0438\u043C\u0435\u043D\u043D\u0430\u044F \u0442\u0430\u0431\u043B\u0438\u0446\u0430 \u0431\u0430\u0437\u044B \u0434\u0430\u043D\u043D\u044B\u0445 \u0441 \u0437\u0430\u0433\u043B\u0430\u0432\u043D\u043E\u0439 \u0431\u0443\u043A\u0432\u044B. \u0421\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C \u0443\u043A\u0430\u0437\u0430\u043D\u0438\u044F \u0438 \u043D\u0435\u043E\u0434\u043D\u043E\u0438\u043C\u0435\u043D\u043D\u043E\u0439 \u0442\u0430\u0431\u043B\u0438\u0446\u044B, \u0432 \u0441\u043B\u0443\u0447\u0430\u0435 \u043D\u0435\u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0432\u0438\u044F \u043B\u043E\u0433\u0438\u043A\u0438 Laravel."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, "\u041A\u043E\u043D\u0442\u0440\u043E\u043B\u043B\u0435\u0440:"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, "app\\Http\\Controllers\\ProductController.php"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u041A\u043E\u043D\u0442\u0440\u043E\u043B\u043B\u0435\u0440 \u0440\u0435\u0430\u043B\u0438\u0437\u0443\u0435\u0442 \u0432\u0441\u0435 \u043E\u0441\u043D\u043E\u0432\u043D\u044B\u0435 \u043C\u0435\u0442\u043E\u0434\u044B:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "- index() - \u041E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435 \u0441\u043F\u0438\u0441\u043A\u0430", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "- store(Request $request) - \u0421\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u0435 \u043D\u043E\u0432\u043E\u0439 \u043F\u043E\u0437\u0438\u0446\u0438\u0438", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "- edit($id) - \u041F\u0440\u0438 \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0438, \u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u044F\u0435\u0442 \u0441\u0443\u0449\u043D\u043E\u0441\u0442\u044C \u0441\u043E \u0432\u0441\u0435\u043C\u0438 \u0434\u0430\u043D\u043D\u044B\u043C\u0438", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "- update(Request $request, $id) - \u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "- destroy($id) - \u0423\u0434\u0430\u043B\u0435\u043D\u0438\u0435", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "align-text-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, " Frontend - RectJS :")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "\u041D\u0430\u0447\u0430\u043B\u044C\u043D\u0430\u044F \u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0430 + \u041C\u0430\u0440\u0448\u0440\u0443\u0442\u0438\u0437\u0430\u0446\u0438\u044F - ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, "resources\\js\\app.js"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\u0412 \u043F\u043E\u0441\u043B\u0435\u0434\u0441\u0432\u0438\u0438, \u043F\u043E\u0441\u043B\u0435 \u0441\u0431\u043E\u0440\u043A\u0438 -npm run \u0441\u043E\u0431\u0435\u0440\u0435\u0442 \u0447\u0435\u0440\u0435\u0437 \u0432 webpack Laravel, \u0432\u0441\u0451 \u0432", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "bold"
+      }, " public\\js\\app.js")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "\u041A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442\u044B: "), "- resources\\js\\components\\TopMenu.js -\u0432\u0435\u0440\u0445\u043D\u0435\u0435 \u043C\u0435\u043D\u044E", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "- resources\\js\\components\\About.js - \u0442\u0435\u043A\u0443\u0449\u0430\u044F \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0430", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "- resources\\js\\components\\dictonary\\product\\Grid.js - \u0422\u0430\u0431\u043B\u0438\u0446\u0430 \u043A\u0430\u0442\u0430\u043B\u043E\u0433\u0430, \u0437\u0430\u043F\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u044F ajax \u0437\u0430\u043F\u0440\u043E\u0441\u044B \u0441 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u043B\u0435\u0440\u0430.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "- resources\\js\\components\\dictonary\\product\\Row.js - \u0414\u043E\u0447\u0435\u0440\u043D\u044F\u044F \u043E\u0442 Grid, \u043E\u0442\u0432\u0435\u0447\u0430\u0435\u0442 \u0437\u0430 \u043E\u0442\u0440\u0438\u0441\u043E\u0432\u043A\u0443 \u043F\u043E\u043B\u0435\u0439 \u0438 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0439 \u043A\u043D\u043E\u043F\u043A\u0430\u043C \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0438 \u0443\u0434\u0430\u043B\u0438\u0442\u044C.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "- resources\\js\\components\\dictonary\\product\\Product.js - \u0424\u043E\u0440\u043C\u0430 \u0434\u043B\u044F \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F \u0438 \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F \u0442\u043E\u0432\u0430\u0440\u0430 \u0432 \u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438 \u043E\u0442 \u043F\u0440\u0438\u0448\u0435\u0434\u0448\u0438\u0445 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u043E\u0432.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)))));
     }
   }]);
 
@@ -84860,8 +84866,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/icons/Save */ "./node_modules/@material-ui/icons/Save.js");
 /* harmony import */ var _material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Save__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
-/* harmony import */ var _material_ui_icons_KeyboardBackspace__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/icons/KeyboardBackspace */ "./node_modules/@material-ui/icons/KeyboardBackspace.js");
-/* harmony import */ var _material_ui_icons_KeyboardBackspace__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_KeyboardBackspace__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _TopMenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../TopMenu */ "./resources/js/components/TopMenu.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -84968,6 +84973,8 @@ function (_Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(uri, products).then(function (response) {
         _this3.props.history.push('/display-product');
+      }, function (error) {
+        alert('Ошибка сохранения, проверьте правильность введенных данных.');
       });
     }
   }, {
@@ -84975,7 +84982,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TopMenu__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/display-product",
         className: "btn btn-outline-secondary"
       }, "\u041D\u0430\u0437\u0430\u0434"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
