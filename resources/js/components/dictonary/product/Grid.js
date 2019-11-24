@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Row from './Row';
-
+import TopMenu from '../../TopMenu';
 /**
  * Таблица отображения товаров
  */
@@ -41,7 +41,7 @@ class Grid extends React.Component {
         return (
             <div>
                 <div className="container">
-
+<TopMenu/>
                     <Link className="btn btn-outline-secondary new" to="/add-product">Создать</Link>
                     <br/>
                     <table className="table table-hover">

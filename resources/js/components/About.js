@@ -10,7 +10,7 @@ class About extends React.Component {
         return (
 
             <div className="container">
-
+                <TopMenu></TopMenu>
                 О проге
             </div>
 

@@ -10,7 +10,7 @@ class TopMenu extends Component {
             <div className="container">
                 <div className="navbar navbar-expand-lg navbar-light bg-light">
                     <ul class="nav navbar-nav">
-                        <li class="navbar-brand"><Link to={'/about'}>О приложении</Link></li>
+                        <li class="navbar-brand"><Link to={'/'}>О приложении</Link></li>
                         <li class="navbar-brand"><Link to={'/display-product'}>Каталог</Link></li>
                     </ul>
                 </div>
