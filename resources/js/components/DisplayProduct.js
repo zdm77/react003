@@ -1,17 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import ProductRow from './ProductRow';
 
-class DisplayProduct extends Component {
-
+class DisplayProduct extends React.Component {
     constructor(props) {
+        console.log('constructor')
         super(props);
         this.state = {value: '', items: ''};
         this.createGrid = this.createGrid.bind(this);
-    }
 
+    }
     createGrid() {
+        this.setState({items:[]});
+        console.log('grid')
         axios.get('products')
             .then(response => {
                 this.setState({items: response.data});
@@ -19,21 +21,26 @@ class DisplayProduct extends Component {
             .catch(function (error) {
                 console.log(error);
             })
+
     }
 
     componentDidMount() {
-        this.createGrid();
+             this.createGrid();
     }
 
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
 
     tabRow() {
         if (this.state.items instanceof Array) {
-            let refreshGrid = this.createGrid();
+              let refreshGrid = this.createGrid;
             return this.state.items.map(function (object, i) {
                 return <ProductRow obj={object} key={i} refreshGrid={refreshGrid}/>;
             })
         }
     }
+
 
     render() {
         return (

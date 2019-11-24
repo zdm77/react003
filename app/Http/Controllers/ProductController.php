@@ -46,7 +46,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
     /**
      * Показ при редактировании
