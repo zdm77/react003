@@ -4,18 +4,18 @@ import {render} from 'react-dom';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import Master from './components/Master';
-import CreateProduct from './components/CreateProduct';
-import DisplayProduct from './components/DisplayProduct';
-import EditProduct from './components/EditProduct';
+import TopMenu from './components/TopMenu';
+import Product from './components/dictonary/product/Product';
+import Index from './components/dictonary/product';
+
 
 render(
     <Router>
         <div>
-            <Route path='/' component={Master}/>
-            <Route path='/add-product' exact component={CreateProduct}/>
-            <Route path="/display-product" component={DisplayProduct}/>
-            <Route path="/edit-product/:id" component={CreateProduct} />
+            <Route path='/' component={TopMenu}/>
+            <Route path='/add-product' exact component={Product}/>
+            <Route path="/display-product" component={Index}/>
+            <Route path="/edit-product/:id" component={Product} />
         </div>
     </Router>,
 

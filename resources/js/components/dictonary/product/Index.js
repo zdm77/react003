@@ -1,11 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import ProductRow from './ProductRow';
+import Row from './Row';
 
-class DisplayProduct extends React.Component {
+class Index extends React.Component {
     constructor(props) {
-        console.log('constructor')
         super(props);
         this.state = {value: '', items: ''};
         this.createGrid = this.createGrid.bind(this);
@@ -13,7 +12,6 @@ class DisplayProduct extends React.Component {
     }
     createGrid() {
         this.setState({items:[]});
-        console.log('grid')
         axios.get('products')
             .then(response => {
                 this.setState({items: response.data});
@@ -36,7 +34,7 @@ class DisplayProduct extends React.Component {
         if (this.state.items instanceof Array) {
               let refreshGrid = this.createGrid;
             return this.state.items.map(function (object, i) {
-                return <ProductRow obj={object} key={i} refreshGrid={refreshGrid}/>;
+                return <Row obj={object} key={i} refreshGrid={refreshGrid}/>;
             })
         }
     }
@@ -67,4 +65,4 @@ class DisplayProduct extends React.Component {
     }
 }
 
-export default DisplayProduct;
+export default Index;

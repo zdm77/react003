@@ -3,7 +3,7 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 
 
-class CreateProduct extends Component {
+class Product extends Component {
     constructor(props) {
         super(props);
 
@@ -100,4 +100,4 @@ class CreateProduct extends Component {
     }
 }
 
-export default CreateProduct;
+export default Product;

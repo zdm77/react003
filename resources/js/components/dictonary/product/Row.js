@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-class ProductRow extends React.Component {
+class Row extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,4 +36,4 @@ class ProductRow extends React.Component {
     }
 }
 
-export default ProductRow;
+export default Row;

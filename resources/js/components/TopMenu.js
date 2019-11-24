@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 
 
-class Master extends Component {
+class TopMenu extends Component {
     render() {
         return (
             <div className="navbar navbar-expand-lg navbar-light bg-light" >
@@ -15,4 +15,4 @@ class Master extends Component {
     }
 }
 
-export default Master;
+export default TopMenu;
