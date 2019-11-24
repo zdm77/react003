@@ -1,17 +1,32 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import DeleteButton from '@material-ui/icons/Delete'
+import EditButton from '@material-ui/icons/Edit'
 
+/**
+ * Вложенный компонент для работы с таблиецей
+ * Отрисовка полей, экшены
+ */
 class Row extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    /**
+     * Удаление записи из грида
+     * @param event
+     */
     handleSubmit(event) {
         event.preventDefault();
         let uri = `products/${this.props.obj.id}`;
-        axios.delete(uri);
-        this.props.refreshGrid();
+
+
+        axios.delete(uri).then((response) => {
+            this.props.refreshGrid();
+        });
+        //перерисовать родительский грид
+
     }
 
     render() {
@@ -23,12 +38,17 @@ class Row extends React.Component {
                 <td>
                     {this.props.obj.price}
                 </td>
-                <td>
-                    <Link to={"edit-product/" + this.props.obj.id} className="btn btn-primary">Edit</Link>
+                <td className="action">
+                    {/*перенаправляем на редактирование */}
+                    <Link to={"edit-product/" + this.props.obj.id} className="btn">
+                        <EditButton></EditButton>
+                    </Link>
                 </td>
-                <td>
+                <td className="action">
                     <form onSubmit={this.handleSubmit}>
-                        <input type="submit" value="Delete" className="btn btn-danger"/>
+                        <button type="submit" className="btn btn-light">
+                            <DeleteButton></DeleteButton>
+                        </button>
                     </form>
                 </td>
             </tr>

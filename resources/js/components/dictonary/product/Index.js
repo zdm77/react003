@@ -3,15 +3,18 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Row from './Row';
 
+/**
+ * Таблица отображения товаров
+ */
 class Index extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value: '', items: ''};
         this.createGrid = this.createGrid.bind(this);
-
     }
+
     createGrid() {
-        this.setState({items:[]});
+        this.setState({items: []});
         axios.get('products')
             .then(response => {
                 this.setState({items: response.data});
@@ -19,32 +22,26 @@ class Index extends React.Component {
             .catch(function (error) {
                 console.log(error);
             })
-
     }
 
     componentDidMount() {
-             this.createGrid();
-    }
-
-    componentWillUnmount() {
-        this._isMounted = false;
+        this.createGrid();
     }
 
     tabRow() {
         if (this.state.items instanceof Array) {
-              let refreshGrid = this.createGrid;
+            let refreshGrid = this.createGrid;
             return this.state.items.map(function (object, i) {
                 return <Row obj={object} key={i} refreshGrid={refreshGrid}/>;
             })
         }
     }
 
-
     render() {
         return (
             <div>
-                <div>
-                    <Link className="btn btn-primary" to="/add-product">Создать</Link>
+                <div className="container">
+                    <Link className="btn btn-outline-secondary new" to="/add-product">Создать</Link>
                     <br/>
                     <table className="table table-hover">
                         <thead>
