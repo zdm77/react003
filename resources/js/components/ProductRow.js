@@ -1,6 +1,7 @@
 import React from 'react';
 import { navigate,useRedirect } from "hookrouter";
 import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
+import DisplayProduct from './DisplayProduct';
 class ProductRow extends React.Component {
     constructor(props) {
         super(props);
@@ -10,7 +11,10 @@ class ProductRow extends React.Component {
         event.preventDefault();
         let uri = `products/${this.props.obj.id}`;
         axios.delete(uri).then((response) => {
-            useRedirect('/user', '/dashboard');
+            //super.forceUpdate();
+
+           // this.props.refreshGrid();
+
            // navigate('/display-product/');
         });
 

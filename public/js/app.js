@@ -68048,7 +68048,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75719,9 +75719,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -75747,12 +75747,13 @@ function (_Component) {
       value: '',
       items: ''
     };
+    _this.createGrid = _this.createGrid.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(DisplayProduct, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "createGrid",
+    value: function createGrid() {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('products').then(function (response) {
@@ -75764,14 +75765,51 @@ function (_Component) {
       });
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.createGrid();
+    } // deleteRecord(event) {
+    //    // event.preventDefault();
+    //     axios.get('products')
+    //         .then(response => {
+    //             this.setState({items: response.data});
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         })
+    //     // let uri = `products/${this.items.id}`;
+    //     // axios.delete(uri).then((response) => {
+    //     //
+    //     //     navigate('/display-product/');
+    //     // });
+    // }
+
+  }, {
     key: "tabRow",
     value: function tabRow() {
       if (this.state.items instanceof Array) {
+        var refreshGrid = this.createGrid();
         return this.state.items.map(function (object, i) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ProductRow__WEBPACK_IMPORTED_MODULE_3__["default"], {
             obj: object,
-            key: i
-          });
+            key: i,
+            refreshGrid: refreshGrid
+          }); // return <tr>
+          //     <td>
+          //         {object.name}
+          //     </td>
+          //     <td>
+          //         {object.price}
+          //     </td>
+          //     <td>
+          //         <Link to={"edit/"+object.id} className="btn btn-primary">Edit</Link>
+          //     </td>
+          //     <td>
+          //         <form onSubmit={this.handleSubmit}>
+          //             <input type="submit" value="Delete" className="btn btn-danger"/>
+          //         </form>
+          //     </td>
+          // </tr>
         });
       }
     }
@@ -75878,6 +75916,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var hookrouter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! hookrouter */ "./node_modules/hookrouter/dist/index.js");
 /* harmony import */ var hookrouter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(hookrouter__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _DisplayProduct__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DisplayProduct */ "./resources/js/components/DisplayProduct.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -75895,6 +75934,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -75920,8 +75960,9 @@ function (_React$Component) {
     value: function handleSubmit(event) {
       event.preventDefault();
       var uri = "products/".concat(this.props.obj.id);
-      axios["delete"](uri).then(function (response) {
-        Object(hookrouter__WEBPACK_IMPORTED_MODULE_1__["useRedirect"])('/user', '/dashboard'); // navigate('/display-product/');
+      axios["delete"](uri).then(function (response) {//super.forceUpdate();
+        // this.props.refreshGrid();
+        // navigate('/display-product/');
       });
     }
   }, {
