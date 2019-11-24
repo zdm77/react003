@@ -21,11 +21,10 @@ class Row extends React.Component {
         event.preventDefault();
         let uri = `products/${this.props.obj.id}`;
 
-
         axios.delete(uri).then((response) => {
+            //перерисовать родительский грид
             this.props.refreshGrid();
         });
-        //перерисовать родительский грид
 
     }
 

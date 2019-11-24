@@ -17,6 +17,15 @@
         .action {
             width: 32px;
         }
+        a:hover{
+            text-decoration: none;
+            background: #3F62CA;
+            color: white;
+
+        }
+        a{
+            padding: 5px;
+        }
         html, body {
             background-color: #fff;
             color: #636b6f;
@@ -70,7 +79,7 @@
     </style>
 </head>
 <body>
-<div id="example"></div>
+<div id="root"></div>
 <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

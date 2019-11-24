@@ -6,7 +6,7 @@ import Row from './Row';
 /**
  * Таблица отображения товаров
  */
-class Index extends React.Component {
+class Grid extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value: '', items: ''};
@@ -41,6 +41,7 @@ class Index extends React.Component {
         return (
             <div>
                 <div className="container">
+
                     <Link className="btn btn-outline-secondary new" to="/add-product">Создать</Link>
                     <br/>
                     <table className="table table-hover">
@@ -62,4 +63,4 @@ class Index extends React.Component {
     }
 }
 
-export default Index;
+export default Grid;
